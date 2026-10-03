@@ -1,0 +1,1170 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>English Teach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: chap tomonda matn, oʻngda A1→C2 zinapoya; pastda mobil navigatsiya paneli, katta ekranda yuqori menyu */
+:root{
+  --bg:#F5F8FE; --surface:#FFFFFF; --ink:#0D1B3A; --muted:#566684; --line:#DAE4F5;
+  --blue:#1F5BFF; --blue-ink:#FFFFFF; --blue-soft:#E7EEFF; --blue-deep:#0B2A8F;
+  --coin:#E8A800; --good:#118A4A; --good-soft:#E2F5EA; --bad:#C93232; --bad-soft:#FBE7E7;
+  --shadow:0 1px 2px rgba(13,27,58,.06),0 8px 24px rgba(13,27,58,.06);
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A1226; --surface:#121D38; --ink:#E9EFFD; --muted:#95A6C8; --line:#22335A;
+  --blue:#5B8CFF; --blue-ink:#07112B; --blue-soft:#18305F; --blue-deep:#A9C1FF;
+  --coin:#F2BE2E; --good:#4BD58C; --good-soft:#12362A; --bad:#FF7A7A; --bad-soft:#3E1B22;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1226; --surface:#121D38; --ink:#E9EFFD; --muted:#95A6C8; --line:#22335A;
+  --blue:#5B8CFF; --blue-ink:#07112B; --blue-soft:#18305F; --blue-deep:#A9C1FF;
+  --coin:#F2BE2E; --good:#4BD58C; --good-soft:#12362A; --bad:#FF7A7A; --bad-soft:#3E1B22;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+button:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,6.2vw,3.3rem);font-weight:800}
+h2{font-size:clamp(1.35rem,3.6vw,1.8rem);font-weight:800}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0}
+.wrap{max-width:1040px;margin-inline:auto;padding-inline:16px}
+.small{font-size:13px;color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.lead{font-size:1.05rem;color:var(--muted);max-width:52ch}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.ic{width:22px;height:22px;flex:none}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:12px;min-height:60px;flex-wrap:nowrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em;white-space:nowrap}
+.mark{width:34px;height:34px;border-radius:9px;background:var(--blue);color:var(--blue-ink);display:grid;place-items:center}
+.mark svg{width:20px;height:20px}
+.dnav{display:none;gap:4px;margin-left:12px}
+.dnav button{padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted)}
+.dnav button.on{background:var(--blue-soft);color:var(--blue-deep)}
+.tools{margin-left:auto;display:flex;align-items:center;gap:8px}
+.coinchip{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:700;font-variant-numeric:tabular-nums}
+.coin{width:16px;height:16px;border-radius:50%;background:var(--coin);display:inline-block;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--blue-soft);color:var(--blue-deep);font-weight:700;font-size:13px;display:grid;place-items:center;border:1px solid var(--line)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:12px;font-weight:700;background:var(--surface);border:1px solid var(--line);min-height:44px}
+.btn:hover{border-color:var(--blue)}
+.btn.primary{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.sm{padding:7px 14px;min-height:36px;font-size:14px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* mobile tab bar */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);display:grid;display:flex;overflow-x:auto;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:600;color:var(--muted);padding:6px 0;border-radius:10px}
+.tabbar button.on{color:var(--blue-deep);background:var(--blue-soft)}
+
+main{padding-block:24px 110px;display:flex;flex-direction:column;gap:40px}
+section{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
+.card.lift{box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.stack{display:flex;flex-direction:column;gap:14px}
+.sechead{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+
+/* hero */
+.hero{display:grid;gap:28px;align-items:end}
+.heroTxt{display:flex;flex-direction:column;gap:16px;min-width:0}
+.stairs{display:flex;align-items:flex-end;gap:6px;height:250px}
+.step{flex:1;min-width:0;height:var(--h);background:var(--blue-soft);color:var(--blue-deep);border-radius:12px 12px 0 0;padding:10px 8px;text-align:left;display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-bottom:0;transition:background .15s}
+.step b{font-family:var(--display);font-size:1.25rem}
+.step span{font-size:11px;font-weight:600;line-height:1.2;opacity:.85}
+.step.on{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.step:hover:not(.on){background:var(--line)}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.pill.free{background:var(--good-soft);color:var(--good)}
+.pill.prem{background:var(--blue-soft);color:var(--blue-deep)}
+.skill{text-align:left;display:flex;flex-direction:column;gap:10px;align-items:flex-start;width:100%;transition:border-color .15s}
+.skill:hover{border-color:var(--blue)}
+.skill p{color:var(--muted);font-size:14px}
+
+.tiers .tier{display:flex;flex-direction:column;gap:8px}
+.tier .big{font-family:var(--display);font-weight:800;font-size:2.2rem;color:var(--blue)}
+.meter{height:8px;border-radius:99px;background:var(--blue-soft);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--blue);border-radius:99px}
+
+.price{display:grid;gap:18px;background:var(--blue);color:var(--blue-ink);border-radius:20px;padding:24px;border:0}
+.price .amount{font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1}
+.price ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.price li{display:flex;gap:8px;align-items:flex-start}
+.price .btn{background:var(--blue-ink);color:var(--blue);border-color:var(--blue-ink)}
+
+/* learn */
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{padding:9px 14px;border-radius:999px;font-weight:700;border:1px solid var(--line);background:var(--surface);display:inline-flex;gap:6px;align-items:center}
+.tab.on{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.tab .ic{width:15px;height:15px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:14px}
+.chip.on{background:var(--blue-soft);border-color:var(--blue);color:var(--blue-deep)}
+.passage{font-size:1.05rem;line-height:1.7}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-weight:500;width:100%}
+.opt:hover:not([disabled]){border-color:var(--blue)}
+.opt .k{font-weight:700;color:var(--blue);min-width:18px}
+.opt.ok{background:var(--good-soft);border-color:var(--good)}
+.opt.no{background:var(--bad-soft);border-color:var(--bad)}
+.opt.gone{opacity:.3}
+.opt[disabled]{cursor:default}
+.fb{padding:10px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--good-soft);color:var(--good)}
+.fb.no{background:var(--bad-soft);color:var(--bad)}
+.qhead{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.qtext{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.3}
+textarea{width:100%;min-height:180px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;padding:12px;resize:vertical}
+input[type=text],input[type=tel],input[type=password],select{width:100%;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;padding:11px 12px;min-height:44px}
+label{font-weight:600;font-size:14px;display:block;margin-bottom:6px}
+.lock{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.timer{font-family:var(--display);font-weight:800;font-size:3rem;font-variant-numeric:tabular-nums;color:var(--blue)}
+.checks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.checks li{display:flex;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:7px;flex:none}
+.dot.ok{background:var(--good)}.dot.warn{background:var(--coin)}
+
+/* rank */
+.rank{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
+.rank li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line)}
+.rank li:last-child{border-bottom:0}
+.rank .n{font-family:var(--display);font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank li.me{background:var(--blue-soft);border-radius:12px;padding-inline:12px;border-bottom-color:transparent}
+.rank .sc{font-weight:700;font-variant-numeric:tabular-nums}
+
+.shopItem{display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.shopItem .price-tag{display:flex;align-items:center;gap:6px;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(6,12,28,.55);display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--surface);color:var(--ink);width:100%;max-width:520px;max-height:92%;overflow:auto;border-radius:22px 22px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:16px}
+.cardbox{background:var(--blue);color:var(--blue-ink);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.cardnum{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,6vw,1.7rem);letter-spacing:.06em;font-variant-numeric:tabular-nums;user-select:all;word-break:break-all}
+.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.x{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--blue-soft);color:var(--blue-deep);font-size:20px;line-height:1}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(86px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:600;z-index:60;max-width:90%;text-align:center}
+footer{color:var(--muted);font-size:13px;padding-block:8px}
+
+@media (min-width:820px){
+  .hero{grid-template-columns:1.1fr .9fr}
+  .stairs{height:320px}
+  .step span{font-size:12px}
+  .price{grid-template-columns:1fr auto;align-items:center}
+}
+@media (min-width:1080px){
+  .dnav{display:flex}
+  .tabbar{display:none}
+  main{padding-bottom:60px}
+  .toast{bottom:28px}
+  .modal{align-items:center}
+  .sheet{border-radius:22px}
+}
+@media (max-width:520px){
+  .step span{display:none}
+  .brand span.t{font-size:1rem}
+  .tools .btn.sm{padding-inline:10px}
+}
+.tabbar button{font-size:10px;flex:1 0 58px;min-width:0}.tabbar button span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sets{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+.setbtn{display:flex;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;padding:12px}
+.setbtn b{font-family:var(--display);font-size:1.05rem}.setbtn:hover{border-color:var(--blue)}
+@media (min-width:1080px){.dnav button{padding:8px 10px;font-size:13.5px}}
+.vwrap{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vid{width:100%;border-radius:12px;background:#000}
+.rowline{display:grid;grid-template-columns:1fr auto 48px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}.rowline b{text-align:right;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- Auth (kirish / roʻyxatdan oʻtish) ---------- */
+html.au-lock{overflow:hidden}
+#auth{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;overflow:auto;background:var(--bg);opacity:0;transition:opacity .35s ease}
+#auth.on{opacity:1}
+.au-bg{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.au-b1,.au-b2{position:absolute;border-radius:50%;filter:blur(70px)}
+.au-b1{width:440px;height:440px;background:var(--blue-soft);top:-140px;left:-110px}
+.au-b2{width:380px;height:380px;background:var(--blue);opacity:.2;bottom:-140px;right:-90px}
+.au-card{position:relative;width:100%;max-width:420px;margin:auto;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px 28px 24px;box-shadow:var(--shadow),0 28px 70px rgba(31,91,255,.16);transform:translateY(20px) scale(.98);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+#auth.on .au-card{transform:none}
+.au-in{animation:auIn .35s ease both}
+@keyframes auIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.au-logo{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:18px}
+.au-logo .mark{width:42px;height:42px;border-radius:12px}
+.au-logo .t{font:800 20px var(--display)}
+.au-card h1{font:800 24px/1.2 var(--display);text-align:center;margin:0 0 8px}
+.au-sub{text-align:center;color:var(--muted);margin:0 0 22px;font-size:15px;line-height:1.5}
+.au-f{display:grid;gap:14px}
+.au-f label{display:block;font-weight:600;margin-bottom:6px}
+.au-f input{width:100%;box-sizing:border-box;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:16px;padding:11px 12px;min-height:46px;transition:border-color .2s,box-shadow .2s}
+.au-f input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.au-pw{position:relative}.au-pw input{padding-right:84px}
+.au-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--blue);font-weight:700;font-size:13px;padding:8px;cursor:pointer}
+.au-err{min-height:18px;color:var(--bad);font-size:14px;font-weight:600}
+.au-go{width:100%;min-height:48px;font-size:16px}
+.au-sw{display:block;width:100%;margin-top:14px;background:none;border:0;color:var(--muted);font:inherit;padding:10px;cursor:pointer}
+.au-sw b{color:var(--blue)}
+.au-note{text-align:center;color:var(--muted);font-size:12px;margin:6px 0 0}
+.greet{font:800 22px var(--display);margin:6px 0 14px}
+@media(max-width:480px){.au-card{padding:26px 20px 18px;border-radius:20px}}
+@media(prefers-reduced-motion:reduce){#auth,.au-card,.au-in{transition:none;animation:none}}
+</style>
+
+<div id="hdr"></div>
+<div class="wrap"><main id="app"></main></div>
+<nav class="tabbar" id="tabbar" aria-label="Asosiy menyu"></nav>
+<div id="auth" hidden></div>
+<div id="modal"></div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+var CARD="4916990363385078";
+var CONTACT="@akramovx7", TG="https://t.me/akramovx7";
+var PRICE="75 000";
+/* SMS xizmati (masalan Eskiz.uz) ulangan server manzili. Boʻsh boʻlsa SMS tasdiqlash oʻchiq turadi. */
+var SMS_API="";
+
+var LV=["A1","A2","B1","B2","C1","C2"];
+var LVN={A1:"Boshlangʻich",A2:"Elementar",B1:"Oʻrta",B2:"Oʻrta-yuqori",C1:"Ilgʻor",C2:"Mukammal"};
+
+/* ---------- Grammatika: 4 daraja x 20 savol ---------- */
+var TIERS=[
+ {id:"easy",n:"Oson",lv:"A1–A2",c:1},
+ {id:"mid",n:"Oʻrtacha",lv:"B1",c:2},
+ {id:"hard",n:"Qiyinroq",lv:"B2",c:3},
+ {id:"expert",n:"Qiyin",lv:"C1–C2",c:4}
+];
+var GR={
+easy:[
+["She ___ a teacher.",["is","are","am","be"],0],
+["I ___ from Uzbekistan.",["am","is","are","be"],0],
+["They ___ playing football now.",["is","are","am","be"],1],
+["There ___ a book on the table.",["is","are","am","were"],0],
+["He ___ breakfast at 7 every day.",["have","has","having","haves"],1],
+["We ___ to school yesterday.",["go","goes","went","going"],2],
+["This is ___ apple.",["a","an","the","some"],1],
+["My brother is ___ than me.",["tall","taller","tallest","more tall"],1],
+["I ___ like coffee.",["don't","doesn't","isn't","not"],0],
+["___ you speak English?",["Do","Does","Are","Is"],0],
+["She lives ___ Tashkent.",["in","on","at","to"],0],
+["I have two ___.",["child","childs","children","childrens"],2],
+["___ is your name?",["What","Who","Where","When"],0],
+["He ___ TV now.",["watch","watches","is watching","watched"],2],
+["Look! It ___ now.",["rain","rains","is raining","rained"],2],
+["I can ___ English.",["speak","speaks","speaking","to speak"],0],
+["These are ___ books.",["my","me","I","mine"],0],
+["She ___ not at home.",["do","does","is","are"],2],
+["We usually have lunch ___ 1 o'clock.",["in","on","at","to"],2],
+["How ___ apples do you have?",["much","many","a lot","any"],1]
+],
+mid:[
+["I ___ here since 2020.",["live","lived","have lived","am living"],2],
+["If it rains, we ___ at home.",["stay","will stay","would stay","stayed"],1],
+["She asked me where ___.",["I live","I lived","did I live","do I live"],1],
+["He is good ___ math.",["in","at","on","for"],1],
+["The book ___ by millions of people.",["read","reads","is read","is reading"],2],
+["I'm looking forward to ___ you.",["see","seeing","saw","seen"],1],
+["She ___ TV when I called.",["watched","was watching","is watching","watches"],1],
+["You ___ smoke here. It's forbidden.",["mustn't","don't have to","needn't","can"],0],
+["I haven't seen him ___ Monday.",["for","since","from","during"],1],
+["This is the ___ film I have ever seen.",["good","better","best","most good"],2],
+["He was tired, ___ he went to bed early.",["but","so","because","although"],1],
+["Do you know ___?",["where the station is","where is the station","where the station are","where does the station"],0],
+["I used to ___ football when I was a child.",["play","playing","played","plays"],0],
+["There isn't ___ milk in the fridge.",["some","any","many","a"],1],
+["She is the girl ___ won the prize.",["who","which","whose","whom"],0],
+["We have lived here ___ ten years.",["since","for","during","from"],1],
+["I wish I ___ more free time.",["have","had","will have","would have"],1],
+["He ___ his keys, so he couldn't open the door.",["lost","had lost","has lost","was losing"],1],
+["Neither Ali ___ Vali came to the party.",["or","nor","and","but"],1],
+["She suggested ___ to the cinema.",["to go","go","going","went"],2]
+],
+hard:[
+["If I ___ you, I would apologise.",["am","was","were","be"],2],
+["By next year, she ___ her degree.",["will finish","will have finished","finishes","is finishing"],1],
+["The report must ___ by Friday.",["finish","be finished","finished","be finishing"],1],
+["I'd rather you ___ smoke here.",["don't","didn't","won't","not"],1],
+["Hardly ___ the station when the train left.",["we reached","had we reached","we had reached","did we reached"],1],
+["She denied ___ the money.",["to take","taking","take","took"],1],
+["He's not used to ___ up early.",["get","getting","got","gets"],1],
+["___ the rain, we went for a walk.",["Despite","Although","However","Because"],0],
+["If she had studied harder, she ___ the exam.",["would pass","would have passed","will pass","passed"],1],
+["I am looking for a flat ___ rent is not too high.",["which","whose","who","that"],1],
+["He insisted ___ paying for dinner.",["in","on","at","to"],1],
+["You ___ have told me earlier! Now it's too late.",["should","can","will","shall"],0],
+["The more you practise, ___ you become.",["the better","better","the best","best"],0],
+["It's high time we ___ home.",["leave","left","will leave","are leaving"],1],
+["She spoke so quietly that I ___ hear her.",["couldn't","can't","mustn't","shouldn't"],0],
+["Not only ___ late, but he also forgot the documents.",["he was","was he","he is","is he"],1],
+["She ___ for this company for ten years when she retired.",["worked","had been working","has worked","was working"],1],
+["Please remind me ___ the letter.",["post","to post","posting","posted"],1],
+["The man ___ car was stolen called the police.",["who","which","whose","whom"],2],
+["We are used to ___ in a noisy city.",["live","living","lived","be living"],1]
+],
+expert:[
+["Had I known about the delay, I ___ earlier.",["would leave","would have left","will leave","left"],1],
+["Seldom ___ such a talented musician.",["I have seen","have I seen","I saw","did I seen"],1],
+["The committee insisted that he ___ the proposal.",["withdraws","withdraw","withdrew","would withdraws"],1],
+["She is said ___ over ten languages.",["speak","speaking","to speak","spoke"],2],
+["___ his efforts, he failed to win.",["Notwithstanding","Whereas","Provided","Unless"],0],
+["I'd sooner he ___ the truth.",["tells","told","tell","would tell"],1],
+["Scarcely had she sat down ___ the phone rang.",["than","when","then","as soon"],1],
+["The project, ___ was delayed twice, finally finished.",["that","which","what","who"],1],
+["Were it not for your help, I ___ failed.",["would have","will have","had","would"],0],
+["So engrossed ___ in the book that he missed his stop.",["he was","was he","he is","is he"],1],
+["It's no use ___ over spilt milk.",["cry","to cry","crying","cried"],2],
+["By the time you arrive, we ___ for three hours.",["will wait","will have been waiting","are waiting","have waited"],1],
+["Under no circumstances ___ the door open.",["you should leave","should you leave","you leave","do you leaving"],1],
+["She ___ have known about the surprise; nobody told her.",["can't","mustn't","shouldn't","needn't"],0],
+["He is reluctant ___ his opinion in public.",["express","expressing","to express","expressed"],2],
+["The new policy is bound to ___ controversy.",["give up","give rise to","give in","give away"],1],
+["I cannot help ___ that he is hiding something.",["suspect","suspecting","to suspect","suspected"],1],
+["___ more careful, the accident wouldn't have happened.",["If he was","Had he been","If he be","Has he been"],1],
+["She takes great pride ___ her work.",["on","in","of","at"],1],
+["Little ___ he know that the meeting had been cancelled.",["does","did","had","was"],1]
+]};
+
+/* ---------- Reading / Listening / Writing / Speaking ---------- */
+function mk(a){return a.map(function(x){return {t:x[0],q:x[1],o:x[2],a:x[3]};});}
+var READ={
+A1:mk([
+["My name is Dilnoza. I am ten years old. I live in Samarkand with my mother, my father and my little brother. We have a cat. Its name is Mushuk.","Where does Dilnoza live?",["Tashkent","Samarkand","Bukhara","Khiva"],1],
+["Tom has a red bike. He rides it to school every day. After school he plays football with his friends.","How does Tom go to school?",["By bus","By bike","On foot","By car"],1],
+["It is Monday morning. Sara gets up at seven. She eats an egg and drinks milk. Then she goes to work.","What does Sara drink?",["Tea","Juice","Milk","Water"],2],
+["My room is small. There is a bed, a desk and a lamp. I do my homework at the desk.","Where does the writer do homework?",["On the bed","At the desk","On the floor","In the kitchen"],1]
+]),
+A2:mk([
+["On Saturday, Aziz went to the market with his grandmother. They bought tomatoes, bread and some apples. After that they had tea in a small cafe. Aziz wanted to buy a toy car, but it was too expensive.","Why didn't Aziz buy the toy car?",["It was broken","It was too expensive","He didn't like it","The shop was closed"],1],
+["Last summer Madina visited her uncle in Khiva. She saw old towers and walked in the narrow streets. The weather was very hot, so she drank a lot of water.","Why did Madina drink a lot of water?",["She was ill","It was very hot","She ran a race","Her uncle told her"],1],
+["Our school library opens at eight and closes at five. Students can borrow three books for two weeks. If they keep a book longer, they pay a small fine.","How many books can students borrow?",["One","Two","Three","Five"],2],
+["Jasur wants to learn the guitar. His cousin teaches him on Sundays. At first the songs were difficult, but now Jasur can play two songs.","Who teaches Jasur?",["His teacher","His cousin","His father","His friend"],1]
+]),
+B1:mk([
+["Many people think learning a language is only about memorising words. However, teachers say that speaking every day, even for ten minutes, helps much more. Students who practise regularly feel less nervous and remember new words for longer.","What helps more, according to teachers?",["Memorising word lists","Speaking every day","Only watching films","Reading grammar books"],1],
+["Last year our town opened a new park with a lake and a bicycle path. At first few people visited it, but after the city added cafes and free concerts, families began to come every weekend.","What made more people visit the park?",["A new lake","Cafes and free concerts","Cheaper tickets","A bigger car park"],1],
+["Sleep is as important as food for students. Researchers found that teenagers who sleep less than seven hours make more mistakes in tests. Going to bed at the same time every night can improve concentration.","What can improve concentration?",["Eating more","A regular bedtime","Longer lessons","Drinking coffee"],1],
+["Although Nodira was nervous about her first job interview, she prepared carefully. She practised answers with her sister and read about the company. In the end, the manager said she was the best candidate.","How did Nodira prepare?",["She slept all day","She practised with her sister","She called the manager","She bought new clothes"],1]
+]),
+B2:mk([
+["Remote work has changed how companies hire. Employers can now choose from candidates around the world, while employees save the time they once spent commuting. Nevertheless, some managers worry that teams lose creativity when they rarely meet in person.","What concern do some managers have?",["Higher salaries","Less creativity","Longer commutes","Fewer candidates"],1],
+["Urban gardens are becoming popular in large cities. Besides providing fresh vegetables, they bring neighbours together and reduce the temperature of crowded districts. Critics argue, however, that the land would be more valuable if used for housing.","What do critics say?",["Gardens are too expensive","The land should be used for housing","Vegetables are unsafe","Gardens increase heat"],1],
+["The company introduced a four-day working week as an experiment. After six months, productivity had remained stable, and employees reported lower stress. Even so, the management postponed a permanent change until further data was collected.","Why was the permanent change postponed?",["Productivity fell","Employees were unhappy","More data was needed","Costs rose"],2],
+["Museums are rethinking how visitors experience art. Rather than silent galleries, many now offer interactive displays and guided conversations, hoping to attract younger audiences who might otherwise stay away.","Why do museums offer interactive displays?",["To save money","To attract younger visitors","To reduce noise","To sell more tickets"],1]
+]),
+C1:mk([
+["The proliferation of short-form video has reshaped attention habits, yet researchers caution against sweeping conclusions. While some studies link heavy consumption to diminished concentration, others suggest that the relationship is bidirectional: people who already struggle to focus may gravitate towards such content.","What do some researchers suggest about the relationship?",["It works in one direction only","It works in both directions","It does not exist","It has been proven"],1],
+["Economists remain divided over whether automation will ultimately reduce employment. Optimists point to historical precedent, noting that new technologies have repeatedly generated occupations previously unimaginable, whereas pessimists contend that the pace of current change leaves little time for workers to adapt.","What do pessimists emphasise?",["Historical precedent","The speed of change","Low wages","Worker laziness"],1],
+["Linguists have long debated whether bilingualism confers cognitive advantages. Early studies reported striking benefits in attention control, but subsequent attempts at replication yielded inconsistent results, prompting some scholars to question the original findings.","What happened in later studies?",["They confirmed everything","Results were inconsistent","They were never published","They found no bilinguals"],1],
+["The architect's design deliberately eschews ornament in favour of light and proportion. Visitors often remark that the building feels simultaneously monumental and intimate, an effect achieved through carefully calibrated ceiling heights.","How is the effect achieved?",["Through ornament","Through ceiling heights","Through colour","Through size alone"],1]
+]),
+C2:mk([
+["The author's prose is deceptively spare: beneath its restraint lies a dense network of allusions that rewards rereading. Critics who dismiss the novel as minimalist overlook how silence itself becomes a structural device.","What does the writer argue about the novel?",["It is too minimalist to matter","Its restraint hides depth","It lacks structure","It contains no allusions"],1],
+["Whatever its merits as polemic, the essay founders on its own premises: by conflating correlation with causation at every turn, it forfeits the very rigour it claims to defend.","What is the main criticism of the essay?",["It lacks passion","It confuses correlation and causation","It is too rigorous","It has too many sources"],1],
+["The protagonist's reticence, far from being a mere character trait, operates as the novel's governing principle: what remains unsaid shapes every subsequent encounter, lending even trivial exchanges an undercurrent of menace.","What does the reticence do in the novel?",["It is just a trait","It shapes encounters and creates menace","It makes the plot clear","It removes tension"],1],
+["That the reforms were ultimately abandoned owes less to public resistance than to the coalition's internal fractures, which rendered coherent policy-making all but impossible.","Why were the reforms abandoned?",["Public resistance","Internal divisions","Lack of funds","A court ruling"],1]
+])
+};
+var LIST={
+A1:mk([
+["Hello! My name is Tom. I am from London. I like football.","Where is Tom from?",["London","Paris","Rome","Berlin"],0],
+["My sister is seven years old. She likes red apples and blue pens.","How old is the sister?",["Five","Six","Seven","Eight"],2],
+["The shop opens at nine o'clock. It closes at six.","When does the shop close?",["At five","At six","At seven","At nine"],1],
+["I have a dog. His name is Max. He is brown and very big.","What colour is Max?",["Black","White","Brown","Grey"],2]
+]),
+A2:mk([
+["The train to Manchester leaves at half past nine from platform four.","Which platform does the train leave from?",["Two","Three","Four","Five"],2],
+["Excuse me, where is the post office? It is next to the bank, opposite the supermarket.","Where is the post office?",["Next to the bank","Next to the school","Behind the park","Opposite the hotel"],0],
+["I'd like two tickets for the evening film, please. It's eight dollars for one ticket.","How much is one ticket?",["Six dollars","Eight dollars","Ten dollars","Sixteen dollars"],1],
+["Tomorrow will be cloudy in the morning, but sunny in the afternoon. The temperature will be around twenty degrees.","What will the afternoon be like?",["Rainy","Cloudy","Sunny","Snowy"],2]
+]),
+B1:mk([
+["I'm calling about the apartment. Could we meet on Thursday at six instead of Wednesday?","When does the speaker want to meet?",["Wednesday","Thursday at six","Friday at six","Thursday at nine"],1],
+["Sorry I'm late. My bus broke down, so I had to walk the last twenty minutes.","Why was the speaker late?",["Missed the bus","The bus broke down","Overslept","There was traffic"],1],
+["If you're interested in the course, you need to register by the end of this week. After that, the price goes up by ten percent.","What happens after the deadline?",["The course is cancelled","The price goes up","Registration is free","The course moves online"],1],
+["I used to live in the city centre, but it was too noisy, so I moved to a small village near the river.","Why did the speaker move?",["Too expensive","Too noisy","Too far","Too small"],1]
+]),
+B2:mk([
+["Due to unexpected maintenance, the library will close two hours early today, but it will reopen at the usual time tomorrow.","What happens tomorrow?",["The library stays closed","It closes early again","It opens as usual","It opens late"],2],
+["The flight has been delayed by approximately ninety minutes owing to heavy fog. Passengers are advised to remain near the gate.","What caused the delay?",["A technical fault","Heavy fog","A strike","A late crew"],1],
+["I'm not against remote work as such, but I do think new employees benefit enormously from working alongside colleagues in the first few months.","What does the speaker believe?",["Remote work is bad","New staff benefit from the office","Colleagues are unhelpful","Offices should close"],1],
+["The restaurant was fully booked, so we ended up eating at a small cafe nearby, which, to be honest, turned out to be much better.","How was the cafe?",["Worse","Much better","Too expensive","Fully booked"],1]
+]),
+C1:mk([
+["Although the initial findings seemed promising, the team decided to repeat the experiment before publishing, to rule out any systematic error.","Why did the team repeat the experiment?",["The findings were disappointing","To rule out error","Funding ended","A deadline passed"],1],
+["While the proposal has undeniable merits, its implementation would require a level of coordination that, realistically, the department cannot muster.","What is the speaker's view?",["It has no merits","It cannot realistically be implemented","It is easy to implement","It needs less coordination"],1],
+["Contrary to popular belief, the study found that multitasking does not improve efficiency; if anything, it makes errors more likely.","What did the study find?",["Multitasking improves efficiency","Multitasking makes errors more likely","Multitasking is rare","Errors are unrelated"],1],
+["Had the committee consulted residents earlier, much of the subsequent opposition might well have been avoided.","What might have avoided the opposition?",["Consulting residents earlier","Building less","Raising taxes","Closing the committee"],0]
+]),
+C2:mk([
+["Her argument, while elegantly constructed, ultimately rests on an assumption she never cares to defend.","What is the weakness of the argument?",["Poor structure","An undefended assumption","Lack of evidence","It is too long"],1],
+["One might concede the premise and still resist the conclusion, for the inference smuggles in a claim that has yet to be established.","What does the speaker object to?",["The premise","An unproven claim in the inference","The data","The length"],1],
+["The film's ambiguity is not a flaw but a deliberate refusal to console the viewer, which is precisely why it lingers.","Why does the film linger?",["It has a clear ending","It refuses to console","It has bright visuals","It has famous actors"],1],
+["Notwithstanding the minister's assurances, the figures tell a rather less flattering story.","What do the figures suggest?",["They support the minister","A less flattering story","Nothing at all","Better than expected"],1]
+])
+};
+var WRITE={
+A1:[["Write 5 sentences about your family.",30],["Describe your room.",30],["What do you eat for breakfast? Write 5 sentences.",30],["Write about your best friend.",35]],
+A2:[["Describe your last weekend.",50],["Write an email to a friend about your holiday.",60],["Describe your daily routine.",60],["Write about your favourite food and why you like it.",60]],
+B1:[["Write about a trip you want to take and explain why.",90],["Write an email to your teacher asking for extra help.",90],["Describe a person who inspires you.",100],["What are the advantages of learning English? Write a short essay.",100]],
+B2:[["Do you agree that students should study online? Give reasons.",150],["Write a formal email complaining about poor service.",150],["Should cities ban cars from their centres? Discuss.",160],["Describe a challenge you overcame and what you learnt.",160]],
+C1:[["Discuss how technology has changed the way we learn.",220],["Write a report recommending improvements for your school or workplace.",220],["Is fame a blessing or a curse? Argue your view.",230],["Evaluate the role of tourism in protecting or damaging local culture.",240]],
+C2:[["To what extent should governments regulate social media? Argue your position.",280],["Critically assess the claim that economic growth and sustainability are incompatible.",300],["Write a reflective essay on the value of failure.",280],["Discuss whether art should serve a social purpose.",300]]
+};
+var SPEAK={
+A1:["Tell me about your family.","Describe your house.","What do you like to eat?","Talk about your best friend."],
+A2:["What do you do every morning?","Talk about your last holiday.","Describe your favourite place in town.","What did you do yesterday?"],
+B1:["Describe a place you like in your city.","Talk about a hobby you enjoy.","What are your plans for next year?","Describe a memorable day."],
+B2:["Is it better to live in a city or in a village? Why?","Talk about a time you changed your mind.","Should school uniforms be compulsory?","How can people reduce stress?"],
+C1:["How does social media shape public opinion?","Discuss the impact of globalisation on local traditions.","Is it ever acceptable to break the law?","How should education change in the next decade?"],
+C2:["Should we sacrifice privacy for security? Discuss.","Is progress always desirable?","Can art be separated from the artist?","Discuss the ethics of artificial intelligence."]
+};
+var ROOMS=[["Daily Talk","A2"],["Travel Stories","B1"],["Debate Club","B2"],["Business English","C1"]];
+
+var SKILLS=[
+ {id:"reading",n:"Reading",d:"Daraja boʻyicha qisqa matnlar va savollar.",free:true},
+ {id:"listening",n:"Listening",d:"Audioni tinglang va savolga javob bering.",free:true},
+ {id:"writing",n:"Writing",d:"Topshiriq yozing va matn tahlilini oling.",free:false},
+ {id:"speaking",n:"Speaking",d:"Gapirish mashqlari va suhbat xonalari.",free:false}
+];
+var SHOP=[
+ {id:"fifty",n:"50:50 yordam",d:"Testda ikkita notoʻgʻri variantni olib tashlaydi.",p:100},
+ {id:"prem3",n:"Premium · 1 kun",d:"Writing, Speaking, kitoblar va intervyular 1 kunga ochiladi.",p:5000}
+];
+var SAMPLE=[["Madina",1840],["Jasur",1620],["Sevara",1405],["Bekzod",1190],["Nigora",960]];
+
+/* ---------- holat ---------- */
+var KEY="akosh_teacher_v1";
+var S={name:"",level:"A1",coins:20,earned:0,fifty:0,boost:0,premiumUntil:0,done:{},best:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){S=Object.assign(S,JSON.parse(raw));}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function isPrem(){return S.premiumUntil>Date.now();}
+
+var route="home", tab="video", Q=null, M=null, ex={}, showText={}, wText="", wRes=null;
+var tm={left:60,id:null};
+var IDX={}, autoId=null;
+function clearAuto(){if(autoId){clearTimeout(autoId);autoId=null;}}
+function schedule(fn,ms){clearAuto();autoId=setTimeout(function(){autoId=null;fn();},ms);}
+function curIdx(k){return IDX[k+S.level]||0;}
+try{var h=(location.hash||"").replace("#","");if(["home","profile","learn","tests","books","grammar","rank","shop"].indexOf(h)>-1)route=h;}catch(e){}
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function ic(p){return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>';}
+var I={
+ home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ learn:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h7"/>',
+ grammar:'<path d="M5 12l4 4 10-10"/>',
+ rank:'<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v1a3 3 0 0 0 4 3M16 6h4v1a3 3 0 0 1-4 3M12 13v4M8 20h8"/>',
+ shop:'<path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/>',
+ tests:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12l2 2 4-4"/>',
+ interviews:'<path d="M4 5h16v11H9l-5 4z"/>',
+ books:'<path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6z"/>',
+ lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>'
+};
+var NAV=[["home","Bosh sahifa"],["learn","Intervyu"],["tests","Testlar"],["books","Kitoblar"],["grammar","Grammatika"],["rank","Reyting"],["shop","Doʻkon"]];
+
+function toast(t){var el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.id);toast.id=setTimeout(function(){el.hidden=true;},2600);}
+function initials(){var n=S.name.trim();return n?n.split(/\s+/).slice(0,2).map(function(w){return w[0].toUpperCase();}).join(""):"AT";}
+function tierOf(id){return TIERS.filter(function(t){return t.id===id;})[0];}
+
+/* ---------- sahifa qismlari ---------- */
+function header(){
+ return '<header class="top"><div class="wrap bar">'+
+ '<button class="brand" data-act="go" data-v="home" aria-label="Bosh sahifa"><span class="mark"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="14" width="5" height="7" rx="1"/><rect x="9.5" y="9" width="5" height="12" rx="1"/><rect x="16" y="3" width="5" height="18" rx="1"/></svg></span><span class="t">English Teach</span></button>'+
+ '<nav class="dnav" aria-label="Menyu">'+NAV.map(function(n){return '<button data-act="go" data-v="'+n[0]+'" class="'+(route===n[0]?"on":"")+'">'+n[1]+'</button>';}).join("")+'</nav>'+
+ '<div class="tools"><button class="coinchip" data-act="go" data-v="shop" aria-label="Coinlar"><span class="coin"></span>'+fmt(S.coins)+'</button>'+
+ '<button class="btn primary sm" data-act="prem">'+(isPrem()?"Premium ✓":"Premium")+'</button>'+
+ '<button class="avatar" data-act="profile" aria-label="Profil">'+esc(initials())+'</button></div></div></header>';
+}
+function tabbar(){
+ return NAV.map(function(n){return '<button data-act="go" data-v="'+n[0]+'" class="'+(route===n[0]?"on":"")+'">'+ic(I[n[0]])+'<span>'+n[1]+'</span></button>';}).join("");
+}
+
+function stairs(){
+ return '<div class="stairs" role="group" aria-label="Daraja tanlash">'+LV.map(function(l,i){
+  return '<button class="step '+(l===S.level?"on":"")+'" style="--h:'+(34+i*13)+'%" data-act="level" data-v="'+l+'" aria-pressed="'+(l===S.level)+'"><b>'+l+'</b><span>'+LVN[l]+'</span></button>';}).join("")+'</div>';
+}
+
+function home(){
+ var skills=SKILLS.map(function(s){
+  return '<button class="card skill" data-act="skill" data-v="'+s.id+'"><span class="pill '+(s.free?"free":"prem")+'">'+(s.free?"Bepul":ic(I.lock).replace('class="ic"','class="ic" style="width:12px;height:12px"')+" Premium")+'</span><h3>'+s.n+'</h3><p>'+s.d+'</p></button>';}).join("");
+ var tiers=TIERS.map(function(t){
+  var b=S.best[t.id];
+  return '<div class="card tier"><span class="small">'+t.lv+'</span><h3>'+t.n+'</h3><span class="big">20</span><span class="small">savol</span>'+(b!=null?'<div class="meter"><i style="width:'+(b*5)+'%"></i></div><span class="small">Eng yaxshi natija: '+b+'/20</span>':'')+'<button class="btn sm" data-act="go" data-v="grammar">Boshlash</button></div>';}).join("");
+ return greet()+'<section class="hero"><div class="heroTxt"><p class="eyebrow">Ingliz tili · A1 dan C2 gacha</p>'+
+  '<h1>Ingliz tilini bosqichma-bosqich oʻrganing</h1>'+
+  '<p class="lead">Reading va Listening mashqlari bepul. Writing, Speaking va 9 ta kitob oyiga '+PRICE+' soʻmlik Premium obunada.</p>'+
+  '<div class="row"><button class="btn primary" data-act="skill" data-v="reading">Bepul boshlash</button><button class="btn" data-act="go" data-v="grammar">Grammatika testlari</button></div>'+
+  '<p class="small">Tanlangan daraja: <b>'+S.level+'</b> · '+LVN[S.level]+'. Zinapoyadan darajani almashtiring.</p></div>'+stairs()+'</section>'+
+  '<section><div class="sechead"><h2>Toʻrtta koʻnikma</h2><p class="small">Reading va Listening hammaga ochiq. Writing va Speaking Premium bilan ochiladi.</p></div><div class="grid">'+skills+'</div></section>'+
+  '<section><div class="sechead"><h2>80 ta grammatik test</h2><p class="small">Toʻrt qiyinlik darajasi, har birida 20 ta savol.</p></div><div class="grid tiers">'+tiers+'</div></section>'+
+  '<section class="card lift"><div class="sechead" style="margin:0"><h2>Coin ishlang va sarflang</h2><p class="lead">Reading, Listening va Speaking mashqlarini bajarib coin yigʻing. Coinga 50:50 yordam yoki Premium kunlarini oling.</p></div><div class="row" style="margin-top:14px"><button class="btn" data-act="go" data-v="shop">Doʻkonni ochish</button><button class="btn" data-act="go" data-v="rank">Reytingni koʻrish</button></div></section>'+
+  '<section class="price"><div class="stack"><p class="eyebrow" style="color:inherit;opacity:.8">Premium</p><div><span class="amount">'+PRICE+'</span> <span>soʻm / oy</span></div>'+
+  '<ul><li>✓ Writing topshiriqlari va matn tahlili</li><li>✓ Speaking mashqlari va suhbat xonalari</li><li>✓ Kitoblar sahifasidagi 9 ta premium kitob</li><li>✓ 9 ta premium intervyu: savollar va namunaviy javoblar</li><li>✓ Reyting jadvalida Premium belgisi</li></ul></div><button class="btn" data-act="prem">Premium olish</button></section>'+
+  '<footer>English Teach · ingliz tili oʻrganish sayti. Birinchi versiya.</footer>';
+}
+
+function lockBox(name){
+ return '<div class="card lift lock"><span class="pill prem">'+ic(I.lock).replace('class="ic"','class="ic" style="width:12px;height:12px"')+' Premium</span><h2>'+name+' Premium obunada</h2><p class="lead">Oyiga '+PRICE+' soʻm. Yoki doʻkonda coin evaziga Premium kunlarini oling.</p><div class="row"><button class="btn primary" data-act="prem">Premium olish</button><button class="btn" data-act="go" data-v="shop">Coin bilan ochish</button></div></div>';
+}
+
+function exercise(kind){
+ var list=(kind==="reading"?READ:LIST)[S.level], i=curIdx(kind), it=list[i], key=kind+"-"+S.level+"-"+i, e=ex[key], p=e?e.p:null;
+ var opts=it.o.map(function(o,n){
+  var cls="",dis="";
+  if(p!=null){dis=" disabled";if(n===it.a)cls=" ok";else if(n===p)cls=" no";}
+  return '<button class="opt'+cls+'"'+dis+' data-act="ex" data-k="'+key+'" data-i="'+n+'"><span class="k">'+"ABCD"[n]+'</span><span lang="en">'+esc(o)+'</span></button>';}).join("");
+ var fb=p==null?"":(p===it.a?'<div class="fb ok">Toʻgʻri!'+(e.coin?" +1 coin":"")+' Keyingisiga oʻtilmoqda...</div>':'<div class="fb no">Notoʻgʻri. Toʻgʻri javob: '+"ABCD"[it.a]+'. Keyingisiga oʻtilmoqda...</div>');
+ var last=i>=list.length-1;
+ var nx='<button class="btn '+(p==null?"sm":"primary")+'" data-act="xnext" data-kind="'+kind+'">'+(p==null?"Oʻtkazib yuborish":(last?(S.level==="C2"?"Boshiga qaytish":"Keyingi daraja"):"Keyingisi"))+'</button>';
+ var head='<div class="qhead"><span class="small">'+(kind==="reading"?"Matn":"Audio")+' '+(i+1)+' / '+list.length+' · '+S.level+'</span><span class="pill free">Bepul</span></div>';
+ var body;
+ if(kind==="reading"){
+  body='<p class="passage" lang="en">'+esc(it.t)+'</p>';
+ }else{
+  body='<div class="row"><button class="btn primary" data-act="play">▶ Tinglash</button><button class="btn" data-act="showtext" data-k="'+key+'">'+(showText[key]?"Matnni yashirish":"Matnni koʻrsatish")+'</button></div>'+
+   (showText[key]?'<p class="passage" lang="en">'+esc(it.t)+'</p>':'<p class="small">Audio brauzerning ovozli oʻqish funksiyasi bilan chiqadi. Ovoz chiqmasa, matnni koʻrsating.</p>');
+ }
+ return '<div class="card lift stack">'+head+body+'<h3 lang="en">'+esc(it.q)+'</h3><div class="opts">'+opts+'</div>'+fb+'<div class="row">'+nx+'</div></div>';
+}
+
+function writing(){
+ if(!isPrem())return lockBox("Writing");
+ var list=WRITE[S.level], i=IDX["w"+S.level]||0, w=list[i];
+ var res="";
+ if(wRes){res='<div class="card stack"><h3>Dastlabki tekshiruv</h3><ul class="checks">'+wRes.map(function(r){return '<li><span class="dot '+(r[0]?"ok":"warn")+'"></span><span>'+r[1]+'</span></li>';}).join("")+'</ul><p class="small">Bu avtomatik tekshiruv. Oʻqituvchi tomonidan tekshirish keyingi versiyada qoʻshiladi.</p></div>';}
+ return '<div class="card lift stack"><div class="qhead"><span class="small">Topshiriq '+(i+1)+' / '+list.length+' · '+S.level+' · kamida '+w[1]+' ta soʻz</span></div><h3 lang="en">'+esc(w[0])+'</h3><textarea id="wtxt" lang="en" placeholder="Javobingizni inglizcha yozing...">'+esc(wText)+'</textarea><div class="qhead"><span class="small" id="wcount">0 ta soʻz</span><div class="row"><button class="btn primary" data-act="check">Tekshirish (+1 coin)</button><button class="btn" data-act="wnext">Keyingi topshiriq</button></div></div></div>'+res;
+}
+
+function speaking(){
+ if(!isPrem())return lockBox("Speaking");
+ var list=SPEAK[S.level], i=IDX["s"+S.level]||0;
+ var rooms=ROOMS.map(function(r){return '<div class="card stack"><span class="pill prem">'+r[1]+'</span><h3>'+r[0]+'</h3><span class="small">Tez orada</span></div>';}).join("");
+ return '<div class="card lift stack"><span class="small">Mavzu '+(i+1)+' / '+list.length+' · '+S.level+'</span><h3 lang="en">'+esc(list[i])+'</h3><p class="small">Bir daqiqa davomida ovoz chiqarib javob bering. Kamida 20 soniya gapirgach "Bajardim" tugmasi +1 coin beradi va keyingi mavzuga oʻtadi.</p><div class="timer" id="timer">'+fmtT(tm.left)+'</div><div class="row"><button class="btn primary" data-act="timer">'+(tm.id?"Toʻxtatish":"Boshlash")+'</button><button class="btn" data-act="sdone">Bajardim</button><button class="btn" data-act="snext">Keyingi mavzu</button></div></div>'+
+  '<div class="sechead" style="margin:8px 0 0"><h2>Suhbat xonalari</h2><p class="small">Boshqa oʻquvchilar bilan jonli suhbat. Xonalar server ulangandan keyin ochiladi.</p></div><div class="grid">'+rooms+'</div>';
+}
+function fmtT(s){var m=Math.floor(s/60);return m+":"+("0"+(s%60)).slice(-2);}
+
+function learn(){
+ var tabs='<button class="tab '+(tab==="video"?"on":"")+'" data-act="tab" data-v="video">Video intervyu</button><button class="tab '+(tab==="interviews"?"on":"")+'" data-act="tab" data-v="interviews">Intervyular</button>'+SKILLS.map(function(s){return '<button class="tab '+(tab===s.id?"on":"")+'" data-act="tab" data-v="'+s.id+'">'+s.n+(!s.free&&!isPrem()?ic(I.lock):"")+'</button>';}).join("");
+ var chips=LV.map(function(l){return '<button class="chip '+(l===S.level?"on":"")+'" data-act="level" data-v="'+l+'">'+l+'</button>';}).join("");
+ if(tab==="video")return '<section class="stack"><div class="sechead" style="margin:0"><h2>Intervyu</h2></div><div class="tabs">'+tabs+'</div>'+videoView()+'</section>';
+ if(tab==="interviews")return '<section class="stack"><div class="sechead" style="margin:0"><h2>Intervyu</h2></div><div class="tabs">'+tabs+'</div>'+interviews()+'</section>';
+ var c=tab==="reading"?exercise("reading"):tab==="listening"?exercise("listening"):tab==="writing"?writing():speaking();
+ return '<section class="stack"><div class="sechead" style="margin:0"><h2>Intervyu</h2><p class="small">Daraja: <b>'+S.level+'</b> · '+LVN[S.level]+'. Har bir bajarilgan mashq uchun +1 coin beriladi (har mashqdan bir marta). Mashqlar avtomatik keyingisiga oʻtadi.</p></div><div class="tabs">'+tabs+'</div><div class="chips">'+chips+'</div>'+c+'</section>';
+}
+
+function grammar(){
+ if(!Q){
+  var cards=TIERS.map(function(t){
+   var b=S.best[t.id];
+   return '<div class="card lift tier"><span class="small">'+t.lv+'</span><h3>'+t.n+'</h3><span class="big">20</span><span class="small">savol</span>'+(b!=null?'<div class="meter"><i style="width:'+(b*5)+'%"></i></div><span class="small">Eng yaxshi natija: '+b+'/20</span>':'<span class="small">Hali yechilmagan</span>')+'<button class="btn primary" data-act="start" data-v="'+t.id+'">Testni boshlash</button></div>';}).join("");
+  return '<section><div class="sechead"><h2>Grammatika testlari</h2><p class="small">Daraja tanlang. Har testda 20 ta savol, har savolda 4 ta variant.'+'</p></div><div class="grid tiers">'+cards+'</div></section>';
+ }
+ var t=tierOf(Q.tier), n=GR[Q.tier].length;
+ if(Q.i>=n){
+  var pct=Math.round(Q.score/n*100);
+  return '<section class="card lift stack"><span class="eyebrow">'+t.n+' · '+t.lv+'</span><h2>Natija: '+Q.score+' / '+n+'</h2><div class="meter"><i style="width:'+pct+'%"></i></div><p class="lead">'+(pct>=80?"Ajoyib natija!":pct>=50?"Yaxshi, yana mashq qiling.":"Qayta urinib koʻring, har urinishda yaxshilanasiz.")+'</p><div class="row"><button class="btn primary" data-act="start" data-v="'+Q.tier+'">Qayta urinish</button><button class="btn" data-act="quizexit">Boshqa daraja</button></div></section>';
+ }
+ var it=GR[Q.tier][Q.i];
+ var opts=it[1].map(function(o,i){
+  var cls="",dis="";
+  if(Q.hid.indexOf(i)>-1)cls=" gone";
+  if(Q.picked!=null){dis=" disabled";if(i===it[2])cls=" ok";else if(i===Q.picked)cls=" no";}
+  else if(Q.hid.indexOf(i)>-1)dis=" disabled";
+  return '<button class="opt'+cls+'"'+dis+' data-act="pick" data-i="'+i+'"><span class="k">'+"ABCD"[i]+'</span><span lang="en">'+esc(o)+'</span></button>';}).join("");
+ var fb=Q.picked==null?"":(Q.picked===it[2]?'<div class="fb ok">Toʻgʻri!</div>':'<div class="fb no">Notoʻgʻri. Toʻgʻri javob: <span lang="en">'+esc(it[1][it[2]])+'</span></div>');
+ var next=Q.picked==null?"":'<button class="btn primary" data-act="next">'+(Q.i+1>=n?"Natijani koʻrish":"Keyingisi")+'</button>';
+ var f=(S.fifty>0&&Q.picked==null&&!Q.hid.length)?'<button class="btn sm" data-act="fifty">50:50 ('+S.fifty+')</button>':'';
+ return '<section class="stack"><div class="qhead"><span class="eyebrow">'+t.n+' · '+t.lv+'</span><span class="small">Savol '+(Q.i+1)+' / '+n+' · Toʻgʻri: '+Q.score+'</span></div><div class="meter"><i style="width:'+(Q.i/n*100)+'%"></i></div>'+
+  '<div class="card lift stack"><p class="qtext" lang="en">'+esc(it[0])+'</p><div class="opts">'+opts+'</div>'+fb+'<div class="row">'+next+f+'<button class="btn sm" data-act="quizexit">Chiqish</button></div></div></section>';
+}
+
+function rank(){
+ var list=SAMPLE.map(function(r){return {n:r[0],s:r[1],me:false};});
+ list.push({n:S.name.trim()||"Siz",s:S.earned,me:true});
+ list.sort(function(a,b){return b.s-a.s;});
+ var rows=list.map(function(r,i){return '<li class="'+(r.me?"me":"")+'"><span class="n">'+(i+1)+'</span><span>'+esc(r.n)+(r.me?' <span class="pill prem">Siz</span>':'')+'</span><span class="sc">'+fmt(r.s)+'</span></li>';}).join("");
+ var MS=[["Bronza",100],["Kumush",500],["Oltin",1000]];
+ var ms=MS.map(function(m){var got=S.earned>=m[1];return '<div class="card stack"><span class="pill '+(got?"free":"prem")+'">'+(got?"Olingan":"Yopiq")+'</span><h3>'+m[0]+' nishon</h3><div class="meter"><i style="width:'+Math.min(100,S.earned/m[1]*100)+'%"></i></div><span class="small">'+fmt(Math.min(S.earned,m[1]))+' / '+fmt(m[1])+' coin ishlash</span></div>';}).join("");
+ return '<section><div class="sechead"><h2>Reyting jadvali</h2><p class="small">Jami ishlangan coin boʻyicha. Boshqa oʻquvchilar namunaviy; haqiqiy reyting server ulangandan keyin ishlaydi.</p></div><div class="card lift"><ol class="rank">'+rows+'</ol></div></section>'+
+  '<section><div class="sechead"><h2>Mukofotlar</h2><p class="small">Ishlagan coinlaringiz soniga qarab nishonlar ochiladi.</p></div><div class="grid">'+ms+'</div></section>';
+}
+
+function shop(){
+ var st=isPrem()?'Premium faol: '+new Date(S.premiumUntil).toLocaleDateString("uz-UZ")+' gacha.':'Premium hozir faol emas.';
+ var items=SHOP.map(function(s){
+  var own=s.id==="fifty"?" · Sizda: "+S.fifty:"";
+  return '<div class="card lift shopItem"><div class="stack" style="gap:6px"><h3>'+s.n+'</h3><p class="small">'+s.d+own+'</p></div><div class="qhead"><span class="price-tag"><span class="coin"></span>'+fmt(s.p)+'</span><button class="btn primary sm" data-act="buy" data-v="'+s.id+'"'+(S.coins<s.p?" disabled":"")+'>Sotib olish</button></div></div>';}).join("");
+ return '<section><div class="sechead"><h2>Coin doʻkoni</h2><p class="small">Balans: <b>'+fmt(S.coins)+'</b> coin. '+st+'</p></div><div class="grid">'+items+'</div></section>'+
+  '<section class="card"><h3>Pulga Premium olmoqchimisiz?</h3><p class="small" style="margin:6px 0 12px">Oylik obuna '+PRICE+' soʻm.</p><button class="btn primary" data-act="prem">Premium olish</button></section>';
+}
+
+function modal(){
+ if(!M)return "";
+ if(M==="prem"){
+  var num=CARD.replace(/(\d{4})(?=\d)/g,"$1 ");
+  return '<div class="modal" data-act="mclose" data-bg="1"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mt">'+
+   '<div class="qhead"><div><span class="eyebrow">Premium</span><h2 id="mt">'+PRICE+' soʻm / oy</h2></div><button class="x" data-act="mclose" aria-label="Yopish">×</button></div>'+
+   (isPrem()?'<div class="fb ok">Premium faol: '+new Date(S.premiumUntil).toLocaleDateString("uz-UZ")+' gacha.</div>':'')+
+   '<ul class="checks"><li><span class="dot ok"></span><span>Writing topshiriqlari va matn tahlili</span></li><li><span class="dot ok"></span><span>Speaking mashqlari va suhbat xonalari</span></li><li><span class="dot ok"></span><span>9 ta premium kitob</span></li><li><span class="dot ok"></span><span>9 ta premium intervyu va namunaviy javoblar</span></li></ul>'+
+   '<div class="cardbox"><span style="opacity:.85;font-size:13px">To‘lov uchun karta raqami</span><span class="cardnum" id="cardnum">'+num+'</span><span style="opacity:.85;font-size:13px">Summa: '+PRICE+' soʻm</span></div>'+
+   '<button class="btn" data-act="copy">Karta raqamini nusxalash</button>'+
+   '<ol class="steps"><li>Yuqoridagi kartaga '+PRICE+' soʻm oʻtkazing.</li><li>Toʻlov chekini Telegramda <b>'+esc(CONTACT)+'</b> ga yuboring.</li><li>Tekshiruvdan keyin Premium faollashtiriladi.</li></ol>'+
+   '<a class="btn primary" href="'+TG+'" target="_blank" rel="noopener" style="text-decoration:none">Chekni Telegramga yuborish</a><button class="btn" data-act="go" data-v="shop">Yoki coin bilan oching</button></div></div>';
+ }
+ return '<div class="modal" data-act="mclose" data-bg="1"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mt">'+
+  '<div class="qhead"><h2 id="mt">Profil</h2><button class="x" data-act="mclose" aria-label="Yopish">×</button></div>'+
+  '<div><label for="pname">Ismingiz</label><input type="text" id="pname" value="'+esc(S.name)+'" maxlength="30" placeholder="Masalan, Aziza"></div>'+
+  '<div><label for="plevel">Darajangiz</label><select id="plevel">'+LV.map(function(l){return '<option value="'+l+'"'+(l===S.level?" selected":"")+'>'+l+' · '+LVN[l]+'</option>';}).join("")+'</select></div>'+
+  '<p class="small">Hozircha profil faqat shu qurilmada saqlanadi. Hisob ochish va qurilmalar orasida sinxronlash keyingi versiyada.</p>'+
+  '<button class="btn primary" data-act="psave">Saqlash</button></div></div>';
+}
+
+/* ---------- Kitoblar: 1 ta bepul, 9 ta Premium ---------- */
+var BOOKS=[
+{id:"b1",t:"Easy Stories",lv:"A1",free:1,d:"Oddiy va qisqa hikoyalar.",ch:[
+["The Red Ball","Sam has a red ball. He plays in the park. The ball is big and soft. Sam is happy."],
+["My Pet","I have a cat. Her name is Lola. She sleeps on my bed. She likes milk and fish."],
+["A Sunny Day","Today is sunny. We go to the lake. Dad makes tea. I swim and my sister reads a book."]]},
+{id:"b2",t:"Daily Life",lv:"A2",d:"Kundalik hayot haqida hikoyalar.",ch:[
+["Morning Routine","Every morning Ali wakes up at six. He eats breakfast and walks to school with his friend."],
+["At the Shop","Nilufar needs bread and milk. At the shop she meets her teacher and they talk about the weekend."]]},
+{id:"b3",t:"Travel Diary",lv:"A2",d:"Sayohat kundaligi.",ch:[
+["First Night in Samarkand","We arrived late. The hotel was small but clean, and from the window we saw the blue domes."],
+["The Old Market","In the market we bought dried fruit and bread. A kind seller showed us the way to the museum."]]},
+{id:"b4",t:"Friends and Family",lv:"B1",d:"Doʻstlar va oila haqida hikoyalar.",ch:[
+["A Surprise Party","Dilnoza planned a surprise for her sister. She hid the cake at a neighbour's house and invited everyone by message."],
+["The Long Phone Call","Although he was tired, Jasur talked to his grandmother for an hour. She told him stories about her childhood."]]},
+{id:"b5",t:"Small Business",lv:"B1",d:"Kichik biznes haqida hikoya.",ch:[
+["The Bakery Plan","Madina wanted to open a bakery. She saved money for two years and asked a friend to help with the menu."],
+["First Customers","On the first day only five people came, but they told their neighbours, and the next week the queue was long."]]},
+{id:"b6",t:"The City Mystery",lv:"B2",d:"Detektiv hikoya.",ch:[
+["The Missing Key","Nobody could explain how the key had vanished from a locked drawer, and the caretaker grew increasingly nervous."],
+["A Strange Note","Beneath the door lay a note, written hastily, which suggested that the answer had been in the library all along."]]},
+{id:"b7",t:"Science Around Us",lv:"B2",d:"Ilm-fan va tabiat.",ch:[
+["Why the Sky Is Blue","Sunlight contains every colour, but the atmosphere scatters blue light more than red, so the sky appears blue."],
+["How Plants Drink","Roots absorb water, which travels upwards through thin tubes, pulled by evaporation from the leaves."]]},
+{id:"b8",t:"Great Ideas",lv:"C1",d:"Gʻoyalar va fikrlash haqida.",ch:[
+["The Value of Failure","Far from being a mere setback, failure often supplies the information that success conceals."],
+["Curiosity at Work","Organisations that reward questions, rather than quick answers, tend to adapt more readily to change."]]},
+{id:"b9",t:"Words and Power",lv:"C1",d:"Til va ta'sir kuchi.",ch:[
+["Language and Identity","The words we habitually choose quietly reveal where we belong and whom we wish to resemble."],
+["The Art of Persuasion","Genuine persuasion rarely overpowers; it invites the listener to reach the conclusion unaided."]]},
+{id:"b10",t:"The Quiet Essay",lv:"C2",d:"Falsafiy esselar.",ch:[
+["On Solitude","Solitude, properly understood, is not the absence of company but the presence of oneself, undistracted."],
+["The Weight of Choice","Every decision forecloses countless alternatives, and it is this quiet arithmetic of loss that lends choice its gravity."]]}
+];
+var BK=null;
+function books(){
+ if(BK){var b=BOOKS.filter(function(x){return x.id===BK.id;})[0];
+  var txt=b.ch.map(function(c){return '<h3 lang="en">'+esc(c[0])+'</h3><p class="passage" lang="en">'+esc(c[1])+'</p>';}).join("");
+  return '<section class="card lift stack"><div class="qhead"><span class="small">'+b.lv+'</span><span class="pill '+(b.free?"free":"prem")+'">'+(b.free?"Bepul":"Premium")+'</span></div><h2 lang="en">'+esc(b.t)+'</h2>'+txt+'<div class="row"><button class="btn" data-act="bsay">▶ Tinglash</button><button class="btn primary" data-act="bclose">Kitoblar roʻyxati</button></div></section>';}
+ var cards=BOOKS.map(function(b){var open=b.free||isPrem();
+  return '<div class="card lift shopItem"><div class="stack" style="gap:6px"><span class="pill '+(b.free?"free":"prem")+'">'+(b.free?"Bepul":ic(I.lock).replace('class="ic"','class="ic" style="width:12px;height:12px"')+" Premium")+'</span><h3 lang="en">'+esc(b.t)+'</h3><p class="small">'+b.lv+' · '+esc(b.d)+'</p></div><button class="btn '+(open?"primary ":"")+'sm" data-act="bopen" data-v="'+b.id+'">'+(open?"Oʻqish":"Premium bilan ochiladi")+'</button></div>';}).join("");
+ return '<section><div class="sechead"><h2>Kitoblar</h2><p class="small">1 ta oson kitob bepul. Qolgan 9 ta kitob Premium ('+PRICE+' soʻm / oy) ichida.</p></div><div class="grid">'+cards+'</div></section>';
+}
+
+/* ---------- Intervyular (Premium) ---------- */
+var IVS=[
+["job","Ish intervyusi","B1","Eng keng tarqalgan ish suhbati savollari.",[
+["Tell me about yourself.","I am a hard-working person with two years of experience in customer service. I enjoy learning new things and working in a team."],
+["Why do you want this job?","I like your company's values, and I believe my skills match the role well. I also see a chance to grow here."],
+["What are your strengths?","I am organised and reliable. I always meet deadlines and I communicate clearly with colleagues."],
+["Where do you see yourself in five years?","I hope to become a senior specialist, take more responsibility and maybe help train new employees."]]],
+["visa","Elchixona (viza) intervyusi","B1","Viza olish uchun odatiy savollar.",[
+["What is the purpose of your visit?","I am going as a tourist for ten days. I would like to see the main cities and museums."],
+["How long will you stay?","I will stay for ten days, from the fifth to the fifteenth of June."],
+["Who will pay for your trip?","I will pay myself. I have savings and a stable salary, and I can show my bank statements."],
+["Do you have family or a job at home?","Yes, I have a full-time job and my family lives here, so I will definitely return."]]],
+["uni","Universitetga kirish","B2","Universitet va grant suhbati savollari.",[
+["Why did you choose this university?","It has strong programmes in my field, experienced teachers and many research opportunities."],
+["What do you want to study and why?","I want to study computer science because I enjoy solving problems and I want to build useful applications."],
+["Describe a challenge you overcame.","I once led a school project with little time. I divided tasks clearly and we finished a day before the deadline."],
+["What will you contribute to our community?","I will bring curiosity, discipline and a willingness to help other students, especially with languages."]]],
+["ielts","IELTS Speaking","B2","IELTS Speaking 1-qism savollari.",[
+["Do you work or are you a student?","I am a student. I study economics and I really enjoy the practical side of the subject."],
+["What do you do in your free time?","I usually read, go for walks with friends and sometimes play football at weekends."],
+["Tell me about your hometown.","I come from a quiet city with old streets, friendly people and wonderful food. It is especially beautiful in spring."],
+["Do you prefer mornings or evenings?","I prefer mornings because I feel more energetic, and it is easier to concentrate."]]],
+["school","Stipendiya intervyusi","C1","Stipendiya va grant komissiyasi savollari.",[
+["Why should we choose you?","I combine strong academic results with real leadership experience, and I have a clear plan to use this education to help my country."],
+["How would your friends describe you?","They would say I am dependable, calm under pressure and always ready to listen."],
+["What is your greatest weakness?","I sometimes take on too much. I am learning to prioritise and to ask for help earlier."],
+["How will this scholarship change your future?","It would let me focus fully on research, build international connections and return home with new skills."]]],
+["manager","Menejer lavozimi intervyusi","C1","Rahbar lavozimiga suhbat.",[
+["How do you motivate a team?","I set clear goals, recognise good work publicly and give honest feedback in private."],
+["Describe a time you handled a conflict.","Two colleagues disagreed about priorities. I listened to both, clarified the shared goal and we agreed on a plan."],
+["How do you deal with tight deadlines?","I break the work into stages, delegate carefully and communicate early if a risk appears."],
+["What is your management style?","Collaborative but decisive. I involve people in decisions, yet I take responsibility for the final call."]]],
+["support","Mijozlar xizmati intervyusi","A2","Oddiy darajadagi ish suhbati.",[
+["Do you like working with people?","Yes, I do. I enjoy helping people and I stay calm and polite."],
+["What would you do with an angry customer?","I would listen carefully, say sorry and try to solve the problem quickly."],
+["Can you work on weekends?","Yes, I can work on Saturdays and Sundays if you need me."],
+["What languages do you speak?","I speak Uzbek, Russian and English. My English is getting better every day."]]],
+["school2","Maktab / kurs suhbati","A1","Boshlangʻich darajadagi suhbat.",[
+["What is your name?","My name is Aziza. I am twelve years old."],
+["Where do you live?","I live in Tashkent with my family."],
+["Why do you want to learn English?","I want to speak with people from other countries and watch films in English."],
+["What do you like to do?","I like drawing, reading books and playing with my friends."]],1]
+,["teacher","Oʻqituvchi intervyusi","B2","Oʻqituvchi lavozimiga suhbat.",[
+["Why do you want to become a teacher?","I enjoy explaining ideas and I believe good teachers change lives. I want to inspire students to love learning."],
+["How do you manage a noisy class?","I set clear rules from the first day, stay calm and keep students busy with interesting tasks."],
+["How do you help weaker students?","I give extra practice, explain in simple steps and praise every small improvement."],
+["How do you use technology in lessons?","I use short videos, quizzes and online tools to make lessons active, but I never replace real conversation."]]],
+["it","IT / dasturchi intervyusi","B2","Dasturchi lavozimiga texnik suhbat.",[
+["Tell me about a project you built.","I built a small web app for a local shop. It tracks orders and sends reminders to customers."],
+["How do you find a bug in your code?","I reproduce the problem, read the error message carefully and test small parts one by one."],
+["How do you work in a team?","I use version control, write clear comments and ask for code reviews before merging."],
+["How do you keep learning new skills?","I follow tutorials, read documentation and build small side projects every month."]]]
+];
+/* ---------- Video intervyu ----------
+   Video havolasini shu yerga yozing: url:"https://www.youtube.com/watch?v=XXXXXXXXXXX" yoki "video.mp4" */
+var VIDEOS=[{t:"Job Interview in English",dur:"8 daqiqa",d:"Ingliz tilidagi ish intervyusi: savollar va javoblarni boshidan oxirigacha koʻring.",url:"interview.mp4"}];
+function vsrc(u){var m=u.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);if(m)return {y:"https://www.youtube.com/embed/"+m[1]+"?rel=0"};if(/\.(mp4|webm|ogg)(\?|$)/i.test(u))return {f:u};return null;}
+function videoView(){
+ var cards=VIDEOS.map(function(v){var p=v.url?vsrc(v.url):null,pl=p&&p.y?'<div class="vwrap"><iframe src="'+p.y+'" title="'+esc(v.t)+'" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>':p&&p.f?'<video class="vid" controls playsinline preload="metadata" src="'+esc(p.f)+'"></video>':'<div class="card"><p class="small">Video tez orada qoʻyiladi.</p></div>';
+  return '<div class="card lift stack"><div class="qhead"><h3>'+esc(v.t)+'</h3><span class="pill free">Bepul · '+esc(v.dur)+'</span></div><p class="small">'+esc(v.d)+'</p>'+pl+'</div>';}).join("");
+ return '<section class="stack"><div class="sechead" style="margin:0"><h2>Video intervyu</h2><p class="small">Hamma koʻra oladi. Intervyuni tomosha qiling va ingliz tilidagi savol-javoblarni oʻrganing.</p></div>'+cards+'<div class="card stack"><h3>Koʻrayotganda e\'tibor bering</h3><ul class="checks"><li><span class="dot ok"></span><span>Intervyuchi qanday savollar beradi?</span></li><li><span class="dot ok"></span><span>Nomzod javobni qanday boshlaydi va tugatadi?</span></li><li><span class="dot ok"></span><span>Yangi soʻz va iboralarni yozib oling.</span></li></ul></div></section>';
+}
+var IV=null,ivShow={};
+function interviews(){
+ if(IV){var v=IVS.filter(function(x){return x[0]===IV;})[0];
+  var qs=v[4].map(function(q,i){var k=v[0]+i,on=ivShow[k];
+   return '<div class="card stack"><div class="qhead"><h3 lang="en">'+(i+1)+'. '+esc(q[0])+'</h3></div>'+(on?'<p class="passage" lang="en">'+esc(q[1])+'</p>':'<p class="small">Avval oʻzingiz javob berib koʻring.</p>')+'<div class="row"><button class="btn sm" data-act="ishow" data-k="'+k+'">'+(on?"Javobni yashirish":"Namunaviy javob")+'</button><button class="btn sm" data-act="isay" data-q="'+v[0]+'" data-i="'+i+'">▶ Tinglash</button></div></div>';}).join("");
+  return '<section class="stack"><div class="qhead"><div><span class="eyebrow">'+v[2]+'</span><h2>'+esc(v[1])+'</h2></div><button class="btn sm" data-act="iclose">Roʻyxat</button></div><p class="small">Savolni oʻqing, ovoz chiqarib javob bering, soʻng namunaviy javob bilan solishtiring.</p>'+qs+'</section>';}
+ var cards=IVS.slice().sort(function(a,b){return (b[5]||0)-(a[5]||0);}).map(function(v){var open=v[5]||isPrem();return '<div class="card lift shopItem"><div class="stack" style="gap:6px"><span class="pill '+(v[5]?"free":"prem")+'">'+(v[5]?"Bepul · ":"Premium · ")+v[2]+'</span><h3>'+esc(v[1])+'</h3><p class="small">'+esc(v[3])+' · '+v[4].length+' ta savol</p></div><button class="btn '+(open?"primary ":"")+'sm" data-act="iopen" data-v="'+v[0]+'">'+(open?"Ochish":"Premium bilan ochiladi")+'</button></div>';}).join("");
+ return '<section><div class="sechead"><h2>Intervyular</h2><p class="small">1 ta intervyu bepul. Qolgan 9 tasi Premium ichida: savollar va namunaviy javoblar.</p></div><div class="grid">'+cards+'</div></section>';
+}
+
+/* ---------- Testlar: 4 koʻnikma x 15 sahifa x 15 test ---------- */
+var NM="Aziz,Madina,Jasur,Nodira,Sardor,Dilnoza,Bekzod,Sevara,Timur,Malika".split(","),
+PL="market,library,park,museum,cinema,station,hospital,bakery,stadium,school".split(","),
+TH="books,apples,tickets,pens,flowers,shirts,oranges,cups,maps,hats".split(","),
+DY="Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday".split(","),
+NW="two,three,four,five,six,seven".split(","),
+HR="two,three,four,five,six,seven,eight,nine,ten".split(","),
+EXT=["","It was a nice day.","The weather was warm and the streets were busy.","Although the queue was long, everything went smoothly.","Despite the heavy traffic, the journey proved remarkably pleasant.","Notwithstanding the unforeseen delays, the outing was by all accounts a resounding success."],
+TOA="your family,your best friend,your house,your city,your hobby,your daily routine,your favourite food,your last holiday,your school,your dream job,your free time,a memorable day,your future plans,your pet,your favourite season".split(","),
+TOG="technology,sport,music,healthy food,the internet,travelling,reading books,public transport,learning English,social media,the environment,shopping,festivals,online education,city life".split(","),
+WF=[["Write 5 sentences about ","Write a short paragraph about ","Describe ","Write about ","Write a message to a friend about "],["Write a paragraph and give reasons: ","Write an email to a friend about ","Write a short essay about ","Describe your experience with ","Explain why people care about "],["Discuss the advantages and disadvantages of ","Write an essay arguing your view on ","Evaluate the role of ","Write a report about the importance of ","Critically assess the impact of "]],
+SF=[["Tell me about ","Talk about ","Describe ","What do you like about ","Speak for one minute about "],["Talk about your experience with ","Why are people interested in ","What are the benefits of ","Speak about your opinion on ","Talk about the role of "],["Discuss the future of ","Analyse the impact of ","Argue for or against the influence of ","Evaluate the importance of ","Present a balanced view on "]],
+WW=[30,50,90,150,220,280],
+TS="reading",T=null;
+function tlv(n){return Math.floor((n-1)*.4);}
+function pick4(pool,a,i){var o=[],j=1,p=pool.indexOf(a);while(o.length<3){var c=pool[(p+j++)%pool.length];if(c!==a)o.push(c);}var s=i%4;o.splice(s,0,a);return {o:o,a:s};}
+function genRL(kind,n,k){
+ var i=(n-1)*15+k,r=kind==="reading",N=NM[i%10],he=i%2?"She":"He",P=PL[(i*3+1)%10],Th=TH[(i*7+2)%10],D=DY[(i*5+3)%7],C=NW[(i+3)%6],H=HR[(i*2+1)%9],x=EXT[tlv(n)],
+ txt=(r?N+" went to the "+P+" on "+D+". "+he+" bought "+C+" "+Th+" there. "+x+" "+he+" came home at "+H+" o'clock.":
+  "Listen carefully. "+N+" is going to the "+P+" on "+D+". "+he+" wants to buy "+C+" "+Th+". "+x+" "+he+" will be back at "+H+" o'clock.").replace(/ +/g," "),
+ v=r?"did":"will",
+ Z=[[r?"Where did "+N+" go?":"Where is "+N+" going?",PL,P],["On which day "+v+" "+N+" go?",DY,D],["What "+v+" "+N+" buy?",TH,Th],["How many "+Th+" "+v+" "+N+" buy?",NW,C],["What time "+v+" "+N+(r?" come":" be")+" home?",HR,H]][i%5],
+ p=pick4(Z[1],Z[2],i);
+ return {t:txt,q:Z[0],o:p.o,a:p.a};
+}
+function tprompt(s,n,k){
+ var g=Math.min(2,Math.floor(tlv(n)/2)),ti=(4*k+7*n+(s==="speaking"?5:0))%15,f=(s==="writing"?WF:SF)[g][(k+n)%5];
+ return f+(g===0?TOA:TOG)[ti]+(/^(Why|What)/.test(f)?"?":".");
+}
+function tdone(s,n){var c=0;for(var k=0;k<15;k++)if(S.done["t-"+s+"-"+n+"-"+k])c++;return c;}
+function say(t,r){if(!window.speechSynthesis)return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=r||.9;speechSynthesis.speak(u);}catch(e){}}
+function stopSay(){if(window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){}}
+function sayT(){if(!T||T.s!=="listening"||T.k>=15)return;var it=genRL("listening",T.n,T.k);say(it.t+" Question. "+it.q,[.8,.85,.9,.95,1,1][tlv(T.n)]);}
+
+function tests(){
+ var sk=SKILLS.filter(function(x){return x.id===TS;})[0];
+ var tabs=SKILLS.map(function(s){return '<button class="tab '+(TS===s.id?"on":"")+'" data-act="ttab" data-v="'+s.id+'">'+s.n+(!s.free&&!isPrem()?ic(I.lock):"")+'</button>';}).join("");
+ var head='<div class="sechead" style="margin:0"><h2>Testlar</h2><p class="small">Har bir koʻnikmada 15 ta sahifa, har sahifada 15 tadan test. Har bir testdan bir marta +1 coin.</p></div><div class="tabs">'+tabs+'</div>';
+ if(!sk.free&&!isPrem())return '<section class="stack">'+head+lockBox(sk.n)+'</section>';
+ if(T&&T.s===TS)return '<section class="stack">'+head+trun()+'</section>';
+ var ch=TS==="reading"||TS==="listening",cells="";
+ for(var n=1;n<=15;n++){var b=S.best["t-"+TS+"-"+n];
+  cells+='<button class="card lift setbtn" data-act="tstart" data-n="'+n+'"><span class="small">'+LV[tlv(n)]+'</span><b>'+n+'-sahifa</b><span class="small">'+tdone(TS,n)+' / 15'+(ch&&b!=null?' · '+b+'/15':'')+'</span></button>';}
+ return '<section class="stack">'+head+'<div class="sets">'+cells+'</div></section>';
+}
+function trun(){
+ var s=T.s,n=T.n,k=T.k,L=LV[tlv(n)],ch=s==="reading"||s==="listening";
+ if(k>=15){
+  var d=tdone(s,n),tot=ch?T.score:d;
+  return '<div class="card lift stack"><span class="eyebrow">'+n+'-sahifa · '+L+'</span><h2>'+(ch?'Natija: '+tot+' / 15':d+' / 15 test bajarildi')+'</h2><div class="meter"><i style="width:'+Math.round(tot/15*100)+'%"></i></div><div class="row"><button class="btn primary" data-act="tstart" data-n="'+n+'">Qayta urinish</button>'+(n<15?'<button class="btn" data-act="tstart" data-n="'+(n+1)+'">Keyingi sahifa</button>':'')+'<button class="btn" data-act="texit">Sahifalar roʻyxati</button></div></div>';}
+ var head='<div class="qhead"><span class="small">'+n+'-sahifa · '+L+' · Test '+(k+1)+' / 15</span><span class="small">'+(ch?'Toʻgʻri: '+T.score:'')+'</span></div><div class="meter"><i style="width:'+(k/15*100)+'%"></i></div>';
+ if(ch){
+  var it=genRL(s,n,k),key="t-"+s+"-"+n+"-"+k,p=T.p;
+  var opts=it.o.map(function(o,i){var c="",dd="";if(p!=null){dd=" disabled";if(i===it.a)c=" ok";else if(i===p)c=" no";}return '<button class="opt'+c+'"'+dd+' data-act="tpick" data-i="'+i+'"><span class="k">'+"ABCD"[i]+'</span><span lang="en">'+esc(o)+'</span></button>';}).join("");
+  var fb=p==null?"":(p===it.a?'<div class="fb ok">Toʻgʻri!</div>':'<div class="fb no">Notoʻgʻri. Toʻgʻri javob: '+"ABCD"[it.a]+'</div>');
+  var body=s==="reading"?'<p class="passage" lang="en">'+esc(it.t)+'</p>':'<div class="row"><button class="btn primary" data-act="tplay">▶ Qayta tinglash</button><button class="btn" data-act="showtext" data-k="'+key+'">'+(showText[key]?"Matnni yashirish":"Matnni koʻrsatish")+'</button></div>'+(showText[key]?'<p class="passage" lang="en">'+esc(it.t)+'</p>':'<p class="small">Test ochilganda audio va savol avtomatik oʻqiladi.</p>');
+  return head+'<div class="card lift stack">'+body+'<h3 lang="en">'+esc(it.q)+'</h3><div class="opts">'+opts+'</div>'+fb+'<div class="row"><button class="btn '+(p==null?'sm':'primary')+'" data-act="tnext">'+(p==null?"Oʻtkazib yuborish":(k>=14?"Natijani koʻrish":"Keyingi test"))+'</button></div></div>';
+ }
+ var pr=tprompt(s,n,k);
+ if(s==="writing")return head+'<div class="card lift stack"><span class="small">Kamida '+WW[tlv(n)]+' ta soʻz</span><h3 lang="en">'+esc(pr)+'</h3><textarea id="wtxt" lang="en" placeholder="Javobingizni inglizcha yozing...">'+esc(wText)+'</textarea><span class="small" id="wcount">0 ta soʻz</span><div class="row"><button class="btn primary" data-act="twdone">Bajardim</button><button class="btn sm" data-act="tnext">Oʻtkazib yuborish</button></div></div>';
+ return head+'<div class="card lift stack"><h3 lang="en">'+esc(pr)+'</h3><p class="small">Ovoz chiqarib javob bering. Kamida 15 soniya gapirgach "Bajardim" tugmasini bosing.</p><div class="row"><button class="btn primary" data-act="tsdone">Bajardim</button><button class="btn sm" data-act="tnext">Oʻtkazib yuborish</button></div></div>';
+}
+
+/* ---------- Profil: roʻyxatdan oʻtish, kirish, umumiy ball ---------- */
+var PF={tab:"reg",step:"form",err:"",v:{name:"",phone:""},tmp:null};
+function sha(t){
+ if(window.crypto&&crypto.subtle&&window.TextEncoder)return crypto.subtle.digest("SHA-256",new TextEncoder().encode(t)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ("0"+x.toString(16)).slice(-2);}).join("");});
+ var h=5381;for(var i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return Promise.resolve("x"+h);
+}
+function normPhone(p){var d=String(p).replace(/\D/g,"");if(d.length===9)d="998"+d;return /^998\d{9}$/.test(d)?"+"+d:"";}
+function val(id){var e=document.getElementById(id);return e?e.value:"";}
+function score(){
+ var c={reading:0,listening:0,writing:0,speaking:0,tests:0},g=0;
+ Object.keys(S.done).forEach(function(k){if(k.indexOf("t-")===0)c.tests++;else if(k.indexOf("reading-")===0)c.reading++;else if(k.indexOf("listening-")===0)c.listening++;else if(k.indexOf("w-")===0)c.writing++;else if(k.indexOf("s-")===0)c.speaking++;});
+ TIERS.forEach(function(t){g+=S.best[t.id]||0;});
+ return {c:c,g:g,total:(c.reading+c.listening+c.writing+c.speaking+c.tests)*10+g*5};
+}
+function profilePage(){
+ var err=PF.err?'<div class="fb no">'+esc(PF.err)+'</div>':"";
+ if(S.acct&&S.in){
+  var sc=score(),c=sc.c,rows=[["Reading",c.reading,c.reading*10],["Listening",c.listening,c.listening*10],["Writing",c.writing,c.writing*10],["Speaking",c.speaking,c.speaking*10],["Testlar sahifalari",c.tests,c.tests*10],["Grammatika (eng yaxshi natijalar)",sc.g,sc.g*5]].map(function(r){return '<li class="rowline"><span>'+r[0]+'</span><span class="small">'+r[1]+(r[0].indexOf("Gram")===0?" ta toʻgʻri":" ta bajarildi")+'</span><b>'+r[2]+'</b></li>';}).join("");
+  var chips=LV.map(function(l){return '<button class="chip '+(l===S.level?"on":"")+'" data-act="level" data-v="'+l+'">'+l+'</button>';}).join("");
+  return '<section class="stack"><div class="card lift stack"><div class="qhead"><div class="row" style="align-items:center"><span class="avatar">'+esc(initials())+'</span><div><h2>'+esc(S.acct.name)+'</h2><span class="small">'+esc(S.acct.phone)+'</span></div></div><span class="pill '+(S.acct.ver?"free":"prem")+'">'+(S.acct.email?"Hisob faol":S.acct.ver?"Telefon tasdiqlangan":"Telefon tasdiqlanmagan")+'</span></div></div>'+
+   '<div class="card lift stack"><span class="eyebrow">Umumiy ball</span><span class="timer">'+fmt(sc.total)+'</span><p class="small">Ball yechgan testlaringizga qarab hisoblanadi: har bir toʻgʻri bajarilgan mashq va test uchun 10 ball, grammatikada har bir toʻgʻri javob uchun 5 ball.</p><ul class="checks">'+rows+'</ul></div>'+
+   '<div class="card stack"><h3>Darajangiz</h3><div class="chips">'+chips+'</div></div><div class="row"><button class="btn" data-act="pfout">Chiqish</button></div><p class="small">Hisob va natijalar hozircha faqat shu qurilmada saqlanadi.</p></section>';
+ }
+ if(S.acct){
+  return '<section class="card lift stack"><h2>Kirish</h2><p class="small">'+esc(S.acct.name)+' · '+esc(S.acct.phone)+'</p>'+err+'<div><label for="lpw">Parol</label><input type="password" id="lpw" autocomplete="current-password"></div><button class="btn primary" data-act="pflogin">Kirish</button></section>';
+ }
+ if(PF.step==="code"){
+  return '<section class="card lift stack"><h2>Telefonni tasdiqlang</h2><p class="small">'+esc(PF.tmp.phone)+' raqamiga SMS orqali kod yuborildi.</p>'+err+'<div><label for="rcode">SMS kod</label><input type="text" id="rcode" inputmode="numeric" maxlength="8" autocomplete="one-time-code"></div><div class="row"><button class="btn primary" data-act="pfcode">Tasdiqlash</button><button class="btn" data-act="pfback">Orqaga</button></div></section>';
+ }
+ return '<section class="card lift stack"><h2>Roʻyxatdan oʻtish</h2><p class="small">Ism, telefon raqam va oʻzingiz oylab topgan parolni kiriting.</p>'+err+
+  '<div><label for="rname">Ismingiz</label><input type="text" id="rname" maxlength="30" value="'+esc(PF.v.name)+'" autocomplete="name"></div>'+
+  '<div><label for="rphone">Telefon raqam</label><input type="tel" id="rphone" placeholder="+998 90 123 45 67" value="'+esc(PF.v.phone)+'" autocomplete="tel"></div>'+
+  '<div><label for="rpw">Parol (kamida 6 belgi)</label><input type="password" id="rpw" autocomplete="new-password"></div>'+
+  '<button class="btn primary" data-act="pfreg">Roʻyxatdan oʻtish</button></section>';
+}
+function finishReg(ver){
+ var t=PF.tmp,salt=Math.random().toString(36).slice(2);
+ sha(salt+t.pw).then(function(h){S.acct={name:t.name,phone:t.phone,salt:salt,hash:h,ver:ver};S.in=true;S.name=t.name;save();PF={tab:"reg",step:"form",err:"",v:{name:"",phone:""},tmp:null};render();toast("Roʻyxatdan oʻtdingiz");});
+}
+function smsCall(path,body){return fetch(SMS_API+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw 0;return r.json();});}
+
+/* ---------- chizish ---------- */
+function render(){
+ document.getElementById("hdr").innerHTML=header();
+ document.getElementById("tabbar").innerHTML=tabbar();
+ var v=route==="home"?home():route==="profile"?profilePage():route==="learn"?learn():route==="tests"?tests():route==="books"?books():route==="interviews"?interviews():route==="grammar"?grammar():route==="rank"?rank():shop();
+ document.getElementById("app").innerHTML=v;
+ document.getElementById("modal").innerHTML=modal();
+ var wt=document.getElementById("wtxt");if(wt)countW();
+}
+function countW(){var wt=document.getElementById("wtxt"),c=document.getElementById("wcount");if(!wt||!c)return;var n=wt.value.trim()?wt.value.trim().split(/\s+/).length:0;c.textContent=n+" ta soʻz";}
+
+function go(v){stopTimer();clearAuto();stopSay();route=v;M=null;try{history.replaceState(null,"","#"+v);}catch(e){}render();window.scrollTo(0,0);}
+function stopTimer(){if(tm.id){clearInterval(tm.id);tm.id=null;}}
+function addCoins(n){S.coins+=n;S.earned+=n;}
+
+var A={
+ ttab:function(t){clearAuto();stopSay();TS=t.dataset.v;T=null;wText="";render();},
+ tstart:function(t){clearAuto();wText="";T={s:TS,n:+t.dataset.n,k:0,score:0,p:null,t0:Date.now()};render();window.scrollTo(0,0);sayT();},
+ texit:function(){clearAuto();stopSay();T=null;wText="";render();window.scrollTo(0,0);},
+ tplay:function(){sayT();},
+ tpick:function(t){
+  if(!T||T.p!=null)return;
+  var i=+t.dataset.i,it=genRL(T.s,T.n,T.k),key="t-"+T.s+"-"+T.n+"-"+T.k,ok=i===it.a;
+  T.p=i;
+  if(ok){T.score++;if(!S.done[key]){S.done[key]=1;addCoins(1);save();}}
+  render();
+  var tt=T,tk=T.k;
+  schedule(function(){if(T===tt&&T.k===tk&&T.p!=null)A.tnext();},ok?1400:3200);
+ },
+ tnext:function(){
+  clearAuto();if(!T)return;
+  T.k++;T.p=null;T.t0=Date.now();wText="";
+  if(T.k>=15&&(T.s==="reading"||T.s==="listening")){var bk="t-"+T.s+"-"+T.n,b=S.best[bk];if(b==null||T.score>b)S.best[bk]=T.score;save();}
+  render();window.scrollTo(0,0);sayT();
+ },
+ twdone:function(){
+  var el=document.getElementById("wtxt"),w=WW[tlv(T.n)],n=el&&el.value.trim()?el.value.trim().split(/\s+/).length:0;
+  if(n<w){toast("Yana "+(w-n)+" ta soʻz yozing.");return;}
+  var key="t-writing-"+T.n+"-"+T.k;
+  if(!S.done[key]){S.done[key]=1;addCoins(1);save();toast("+1 coin: Writing testi bajarildi");}
+  A.tnext();
+ },
+ tsdone:function(){
+  if(Date.now()-T.t0<15000){toast("Avval kamida 15 soniya gapiring.");return;}
+  var key="t-speaking-"+T.n+"-"+T.k;
+  if(!S.done[key]){S.done[key]=1;addCoins(1);save();toast("+1 coin: Speaking testi bajarildi");}
+  A.tnext();
+ },
+ bopen:function(t){
+  var b=BOOKS.filter(function(x){return x.id===t.dataset.v;})[0];
+  if(!b.free&&!isPrem()){A.prem();return;}
+  BK={id:b.id,c:0};render();window.scrollTo(0,0);
+ },
+ bclose:function(){stopSay();BK=null;render();window.scrollTo(0,0);},
+ bsay:function(){var b=BOOKS.filter(function(x){return x.id===BK.id;})[0];say(b.t+". "+b.ch.map(function(c){return c[0]+". "+c[1];}).join(" "),.85);},
+ iopen:function(t){var x=IVS.filter(function(v){return v[0]===t.dataset.v;})[0];if(!x[5]&&!isPrem()){A.prem();return;}IV=t.dataset.v;render();window.scrollTo(0,0);},
+ iclose:function(){stopSay();IV=null;render();window.scrollTo(0,0);},
+ ishow:function(t){ivShow[t.dataset.k]=!ivShow[t.dataset.k];render();},
+ isay:function(t){var v=IVS.filter(function(x){return x[0]===t.dataset.q;})[0],q=v[4][+t.dataset.i];say(q[0]+" ... "+q[1],.9);},
+ go:function(t){go(t.dataset.v);},
+ skill:function(t){tab=t.dataset.v;go("learn");},
+ level:function(t){clearAuto();stopTimer();tm.left=60;S.level=t.dataset.v;wRes=null;wText="";save();render();},
+ tab:function(t){clearAuto();stopTimer();tab=t.dataset.v;render();},
+ ex:function(t){
+  var k=t.dataset.k,n=+t.dataset.i,pr=k.split("-"),kind=pr[0],lvl=pr[1],idx=+pr[2];
+  var it=(kind==="reading"?READ:LIST)[lvl][idx];
+  if(ex[k])return;
+  var coin=false;
+  if(n===it.a&&!S.done[k]){S.done[k]=1;addCoins(1);save();coin=true;}
+  ex[k]={p:n,coin:coin};
+  render();
+  schedule(function(){
+   if(route==="learn"&&tab===kind&&S.level===lvl&&curIdx(kind)===idx)A.xnext({dataset:{kind:kind}});
+  },n===it.a?1800:3500);
+ },
+ xnext:function(t){
+  clearAuto();
+  if(window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){}
+  var kind=t.dataset.kind,list=(kind==="reading"?READ:LIST)[S.level],i=curIdx(kind)+1;
+  if(i>=list.length){
+   IDX[kind+S.level]=0;
+   var li=LV.indexOf(S.level);
+   if(li<LV.length-1){S.level=LV[li+1];toast("Keyingi daraja: "+S.level);save();}
+   else toast("Barcha darajalar tugadi. Boshidan boshlandi.");
+   IDX[kind+S.level]=0;
+  }else IDX[kind+S.level]=i;
+  render();window.scrollTo(0,0);if(kind==="listening")A.play();
+ },
+ play:function(){
+  if(!("speechSynthesis" in window)){toast("Bu brauzerda audio ishlamaydi. Matnni koʻrsating.");return;}
+  var it=LIST[S.level][curIdx("listening")];speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(it.t+" Question. "+it.q);u.lang="en-US";u.rate=[.8,.85,.9,.95,1,1][LV.indexOf(S.level)];
+  speechSynthesis.speak(u);
+ },
+ showtext:function(t){showText[t.dataset.k]=!showText[t.dataset.k];render();},
+ check:function(){
+  var el=document.getElementById("wtxt");wText=el.value;var txt=wText.trim();
+  if(!txt){toast("Avval matn yozing.");return;}
+  var i=IDX["w"+S.level]||0,w=WRITE[S.level][i][1],key="w-"+S.level+"-"+i;
+  var words=txt.split(/\s+/),n=words.length;
+  var sents=txt.split(/[.!?]+/).filter(function(x){return x.trim();}).length||1;
+  var uniq=new Set(words.map(function(x){return x.toLowerCase().replace(/[^a-z']/g,"");})).size;
+  var avg=n/sents;
+  wRes=[
+   [n>=w,"Hajm: "+n+" ta soʻz"+(n>=w?" (maqsad bajarildi)":" (maqsad "+w+" ta)")],
+   [avg>=6&&avg<=25,"Gap uzunligi: oʻrtacha "+avg.toFixed(1)+" ta soʻz"+(avg<6?". Gaplarni choʻzing.":avg>25?". Gaplarni qisqartiring.":".")],
+   [uniq/n>=.55,"Soʻz xilma-xilligi: "+Math.round(uniq/n*100)+"%"+(uniq/n<.55?". Takrorlarni kamaytiring.":".")],
+   [!/\bi\b/.test(txt),/\bi\b/.test(txt)?"Kichik harfli \"i\" topildi. \"I\" katta yoziladi.":"Katta harf qoidasi saqlangan."],
+   [/^[A-Z]/.test(txt),/^[A-Z]/.test(txt)?"Matn katta harf bilan boshlangan.":"Matnni katta harf bilan boshlang."]
+  ];
+  if(n>=w&&!S.done[key]){S.done[key]=1;addCoins(1);save();toast("+1 coin: Writing topshirigʻi bajarildi");}
+  else if(n<w)toast("Yana "+(w-n)+" ta soʻz yozing.");
+  render();
+ },
+ wnext:function(){
+  var list=WRITE[S.level],i=((IDX["w"+S.level]||0)+1)%list.length;
+  IDX["w"+S.level]=i;wText="";wRes=null;render();window.scrollTo(0,0);
+ },
+ timer:function(){
+  if(tm.id){stopTimer();render();return;}
+  if(tm.left<=0)tm.left=60;
+  tm.id=setInterval(function(){tm.left--;var e=document.getElementById("timer");if(e)e.textContent=fmtT(tm.left);
+   if(tm.left<=0){A.finishSpeak();}},1000);
+  render();
+ },
+ finishSpeak:function(){
+  stopTimer();
+  var i=IDX["s"+S.level]||0,key="s-"+S.level+"-"+i;
+  if(!S.done[key]){S.done[key]=1;addCoins(1);save();toast("+1 coin: Speaking mashqi bajarildi");}
+  else toast("Bu mavzu avval bajarilgan");
+  A.snext();
+ },
+ sdone:function(){
+  if(60-tm.left<20){toast("Avval kamida 20 soniya gapiring. Taymerni boshlang.");return;}
+  A.finishSpeak();
+ },
+ snext:function(){
+  stopTimer();tm.left=60;
+  var list=SPEAK[S.level];IDX["s"+S.level]=((IDX["s"+S.level]||0)+1)%list.length;
+  render();window.scrollTo(0,0);
+ },
+ treset:function(){stopTimer();tm.left=60;render();},
+ start:function(t){
+  var id=t.dataset.v,dbl=false;
+  Q={tier:id,i:0,score:0,earned:0,picked:null,hid:[],dbl:dbl};route="grammar";render();window.scrollTo(0,0);
+ },
+ pick:function(t){
+  if(!Q||Q.picked!=null)return;var i=+t.dataset.i,it=GR[Q.tier][Q.i];Q.picked=i;
+  if(i===it[2]){Q.score++;}
+  render();
+  var qq=Q,qi=Q.i;
+  schedule(function(){if(Q===qq&&Q.i===qi&&Q.picked!=null)A.next();},i===it[2]?1100:2300);
+ },
+ next:function(){
+  clearAuto();Q.i++;Q.picked=null;Q.hid=[];
+  if(Q.i>=GR[Q.tier].length){var b=S.best[Q.tier];if(b==null||Q.score>b)S.best[Q.tier]=Q.score;save();}
+  render();window.scrollTo(0,0);
+ },
+ fifty:function(){
+  if(S.fifty<1||!Q||Q.picked!=null||Q.hid.length)return;
+  var it=GR[Q.tier][Q.i],wrong=[0,1,2,3].filter(function(i){return i!==it[2];});
+  wrong.sort(function(){return Math.random()-.5;});Q.hid=wrong.slice(0,2);S.fifty--;save();render();
+ },
+ quizexit:function(){clearAuto();Q=null;render();window.scrollTo(0,0);},
+ buy:function(t){
+  var s=SHOP.filter(function(x){return x.id===t.dataset.v;})[0];
+  if(!s||S.coins<s.p){toast("Coin yetarli emas");return;}
+  S.coins-=s.p;
+  if(s.id==="fifty")S.fifty++;
+  else S.premiumUntil=Math.max(Date.now(),S.premiumUntil)+1*864e5;
+  save();render();toast(s.n+" sotib olindi");
+ },
+ prem:function(){M="prem";render();},
+ profile:function(){go("profile");},
+ pfreg:function(){
+  var name=val("rname").trim(),ph=normPhone(val("rphone")),pw=val("rpw");
+  PF.v={name:name,phone:val("rphone")};PF.err="";
+  if(name.length<2)PF.err="Ismingizni kiriting.";
+  else if(!ph)PF.err="Telefon raqamni toʻgʻri kiriting. Masalan: +998 90 123 45 67";
+  else if(pw.length<6)PF.err="Parol kamida 6 belgidan iborat boʻlsin.";
+  if(PF.err){render();return;}
+  PF.tmp={name:name,phone:ph,pw:pw};
+  if(!SMS_API){finishReg(false);return;}
+  smsCall("/send",{phone:ph}).then(function(){PF.step="code";PF.err="";render();}).catch(function(){PF.err="SMS yuborilmadi. Keyinroq urinib koʻring.";render();});
+ },
+ pfcode:function(){
+  var code=val("rcode").trim();if(!code){PF.err="SMS kodni kiriting.";render();return;}
+  smsCall("/verify",{phone:PF.tmp.phone,code:code}).then(function(d){if(d&&d.ok)finishReg(true);else{PF.err="Kod notoʻgʻri.";render();}}).catch(function(){PF.err="Tekshirib boʻlmadi. Keyinroq urinib koʻring.";render();});
+ },
+ pfback:function(){PF.step="form";PF.err="";render();},
+ pflogin:function(){
+  sha(S.acct.salt+val("lpw")).then(function(h){if(h===S.acct.hash){S.in=true;PF.err="";save();render();}else{PF.err="Parol notoʻgʻri.";render();}});
+ },
+ pfout:function(){S.in=false;PF.err="";save();render();window.scrollTo(0,0);},
+
+ mclose:function(t,e){if(t.dataset.bg&&e.target!==t)return;M=null;render();},
+ copy:function(){
+  function fallback(){var el=document.getElementById("cardnum"),r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);toast("Karta raqami belgilandi. Nusxalang.");}
+  try{navigator.clipboard.writeText(CARD).then(function(){toast("Karta raqami nusxalandi");},fallback);}catch(e){fallback();}
+ },
+ psave:function(){
+  S.name=document.getElementById("pname").value.trim();S.level=document.getElementById("plevel").value;
+  save();M=null;render();toast("Profil saqlandi");
+ }
+};
+
+document.addEventListener("click",function(e){
+ var t=e.target.closest("[data-act]");if(!t)return;
+ var a=A[t.dataset.act];if(a)a(t,e);
+});
+document.addEventListener("input",function(e){if(e.target.id==="wtxt"){wText=e.target.value;countW();}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&M){M=null;render();}});
+
+
+/* ---------- Auth tizimi ----------
+   AUTH_API boʻsh boʻlsa: hisoblar shu brauzerda saqlanadi (parol PBKDF2 bilan xeshlanadi).
+   Backend ulash uchun AUTH_API ga server manzilini yozing (POST /register, /login, /me, /logout;
+   javob: {user:{name,email}}; sessiya httpOnly cookie orqali). */
+var AUTH_API="";
+var UK="et_users_v2", SK="et_session_v2", gmode="register";
+var MEM={};
+function rd(k){try{var r=localStorage.getItem(k);if(r!==null)return JSON.parse(r);}catch(e){}return MEM[k]!==undefined?MEM[k]:null;}
+function wr(k,v){MEM[k]=v;try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}return true;}
+function hex(a){return Array.prototype.map.call(a,function(x){return ("0"+x.toString(16)).slice(-2);}).join("");}
+function rnd(n){var a=new Uint8Array(n);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else for(var i=0;i<n;i++)a[i]=Math.floor(Math.random()*256);return hex(a);}
+function hashPw(pw,salt){
+ if(window.crypto&&crypto.subtle&&window.TextEncoder){
+  var e=new TextEncoder();
+  return crypto.subtle.importKey("raw",e.encode(pw),"PBKDF2",false,["deriveBits"]).then(function(k){
+   return crypto.subtle.deriveBits({name:"PBKDF2",salt:e.encode(salt),iterations:150000,hash:"SHA-256"},k,256);
+  }).then(function(b){return hex(new Uint8Array(b));}).catch(function(){return sha(salt+pw);});
+ }
+ return sha(salt+pw);
+}
+function api(path,body){return fetch(AUTH_API+path,{method:"POST",credentials:"include",headers:{"Content-Type":"application/json"},body:JSON.stringify(body||{})}).then(function(r){return r.json().then(function(d){if(!r.ok)throw new Error(d&&d.error||"Xatolik");return d;});});}
+function greet(){var n=(S.name||"").trim().split(/\s+/)[0];return n?'<p class="greet">Salom, '+esc(n)+'! 👋</p>':"";}
+function applyUser(u,quiet){
+ S.name=u.name;S.acct={name:u.name,phone:u.email,email:u.email,ver:true};S.in=true;save();
+ hideGate();render();if(!quiet)toast("Xush kelibsiz, "+u.name.split(/\s+/)[0]+"!");
+}
+function lockUI(on){["hdr","app","tabbar","modal"].forEach(function(id){var el=document.getElementById(id);if(el){if(on)el.setAttribute("inert","");else el.removeAttribute("inert");}});document.documentElement.classList.toggle("au-lock",on);}
+function gateHTML(m){
+ var reg=m==="register";
+ return '<div class="au-bg"><span class="au-b1"></span><span class="au-b2"></span></div>'+
+ '<div class="au-card" role="dialog" aria-modal="true" aria-labelledby="au-t"><div class="au-in">'+
+ '<div class="au-logo"><span class="mark"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="14" width="5" height="7" rx="1"/><rect x="9.5" y="9" width="5" height="12" rx="1"/><rect x="16" y="3" width="5" height="18" rx="1"/></svg></span><span class="t">English Teach</span></div>'+
+ '<h1 id="au-t">'+(reg?"English Teach’ga xush kelibsiz!":"Yana xush kelibsiz!")+'</h1>'+
+ '<p class="au-sub">'+(reg?"Ingliz tilini oʻrganishni boshlash uchun roʻyxatdan oʻting":"Davom etish uchun hisobingizga kiring")+'</p>'+
+ '<div class="au-f" id="au-f">'+
+ (reg?'<div><label for="au-n">Ism</label><input id="au-n" type="text" maxlength="30" autocomplete="name" placeholder="Masalan, Akbarjon"></div>':'')+
+ '<div><label for="au-e">Email</label><input id="au-e" type="email" autocomplete="email" inputmode="email" placeholder="siz@example.com"></div>'+
+ '<div><label for="au-p">Parol</label><div class="au-pw"><input id="au-p" type="password" autocomplete="'+(reg?"new-password":"current-password")+'" placeholder="'+(reg?"Kamida 6 belgi":"Parolingiz")+'"><button type="button" class="au-eye" id="au-eye">Koʻrsatish</button></div></div>'+
+ '<div class="au-err" id="au-er" role="alert"></div>'+
+ '<button class="btn primary au-go" id="au-go" type="button">'+(reg?"Roʻyxatdan oʻtish":"Kirish")+'</button></div>'+
+ '<button class="au-sw" id="au-sw" type="button">'+(reg?"Hisobingiz bormi? <b>Kirish</b>":"Hisobingiz yoʻqmi? <b>Roʻyxatdan oʻtish</b>")+'</button>'+
+ '</div></div>';
+}
+function showGate(m){
+ gmode=m;var g=document.getElementById("auth");
+ g.innerHTML=gateHTML(m);g.hidden=false;lockUI(true);
+ requestAnimationFrame(function(){g.classList.add("on");});
+ var f=document.getElementById("au-f"),er=document.getElementById("au-er");
+ document.getElementById("au-sw").onclick=function(){showGate(m==="register"?"login":"register");};
+ document.getElementById("au-eye").onclick=function(){var p=document.getElementById("au-p"),h=p.type==="password";p.type=h?"text":"password";this.textContent=h?"Yashirish":"Koʻrsatish";};
+ var submit=function(){
+  var n=m==="register"?document.getElementById("au-n").value.trim():"",
+      em=document.getElementById("au-e").value.trim().toLowerCase(),
+      pw=document.getElementById("au-p").value,btn=document.getElementById("au-go");
+  var msg="";
+  if(m==="register"&&n.length<2)msg="Ismingizni kiriting (kamida 2 harf).";
+  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em))msg="Toʻgʻri email kiriting.";
+  else if(pw.length<6)msg="Parol kamida 6 belgidan iborat boʻlsin.";
+  if(msg){er.textContent=msg;return;}
+  er.textContent="";btn.disabled=true;var old=btn.textContent;btn.textContent="Kuting…";
+  doAuth(m,n,em,pw).then(function(u){applyUser(u);}).catch(function(x){er.textContent=x&&x.message?x.message:"Xatolik yuz berdi.";btn.disabled=false;btn.textContent=old;});
+ };
+ document.getElementById("au-go").onclick=submit;
+ f.onkeydown=function(ev){if(ev.key==="Enter"){ev.preventDefault();submit();}};
+ setTimeout(function(){var i=document.getElementById(m==="register"?"au-n":"au-e");if(i)i.focus({preventScroll:true});},350);
+}
+function hideGate(){
+ var g=document.getElementById("auth");g.classList.remove("on");lockUI(false);
+ setTimeout(function(){if(!g.classList.contains("on")){g.hidden=true;g.innerHTML="";}},380);
+}
+function doAuth(m,n,em,pw){
+ if(AUTH_API)return api(m==="register"?"/register":"/login",{name:n,email:em,password:pw}).then(function(d){return d.user;});
+ var users=rd(UK)||{},u=users[em];
+ if(m==="register"){
+  if(u)return Promise.reject(new Error("Bu email bilan hisob mavjud. Kirish tugmasini bosing."));
+  var salt=rnd(16);
+  return hashPw(pw,salt).then(function(h){
+   var nu={name:n,email:em,salt:salt,hash:h,created:Date.now()};users[em]=nu;
+   if(!wr(UK,users))throw new Error("Brauzer xotirasiga yozib boʻlmadi.");
+   wr(SK,{email:em,t:rnd(16)});return nu;
+  });
+ }
+ if(!u)return Promise.reject(new Error("Email yoki parol notoʻgʻri."));
+ return hashPw(pw,u.salt).then(function(h){if(h!==u.hash)throw new Error("Email yoki parol notoʻgʻri.");wr(SK,{email:em,t:rnd(16)});return u;});
+}
+function logout(){
+ delete MEM[SK];try{localStorage.removeItem(SK);}catch(e){}
+ if(AUTH_API)api("/logout").catch(function(){});
+ S.in=false;save();route="home";try{history.replaceState(null,"",location.pathname+location.search);}catch(e){}
+ render();window.scrollTo(0,0);showGate("login");
+}
+A.pfout=function(){logout();};
+(function bootAuth(){
+ if(AUTH_API){showGate("register");api("/me").then(function(d){applyUser(d.user,true);}).catch(function(){});return;}
+ var ss=rd(SK),us=rd(UK)||{};
+ if(ss&&us[ss.email]){S.name=us[ss.email].name;S.acct={name:S.name,phone:ss.email,email:ss.email,ver:true};S.in=true;save();return;}
+ showGate(Object.keys(us).length?"login":"register");
+})();
+
+render();
+})();
+</script>
+
+</body></html>
